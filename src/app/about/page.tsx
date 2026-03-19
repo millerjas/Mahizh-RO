@@ -3,6 +3,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/sections/CTASection";
+import styles from "./page.module.css";
 import {
     Target,
     Eye,
@@ -21,17 +22,17 @@ export default function AboutPage() {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="pt-32 pb-20 bg-surface relative overflow-hidden text-center">
-                <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -ml-32 -mt-32" />
-                <div className="max-w-4xl mx-auto px-4 relative z-10">
+            <section className={styles.heroSection}>
+                <div className={styles.heroBgBlur} />
+                <div className={styles.heroContainer}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-5xl font-extrabold text-foreground mb-6">
-                            Our <span className="text-primary italic">Story & Mission</span>
+                        <h1 className={styles.heroH1}>
+                            Our <span className={styles.primaryItalic}>Story & Mission</span>
                         </h1>
-                        <p className="text-xl text-muted leading-relaxed">
+                        <p className={styles.heroP}>
                             Leading the way in industrial water purification across Theni. Mahizh RO Innovation is dedicated to providing high-quality, sustainable water solutions.
                         </p>
                     </motion.div>
@@ -39,36 +40,36 @@ export default function AboutPage() {
             </section>
 
             {/* Intro Section */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <section className={styles.sectionBgWhite}>
+                <div className={styles.container}>
+                    <div className={styles.introGrid}>
                         <div>
-                            <h2 className="text-3xl font-bold mb-8">Pioneering Pure Water Solutions</h2>
-                            <p className="text-lg text-muted leading-relaxed mb-6">
+                            <h2 className={styles.introH2}>Pioneering Pure Water Solutions</h2>
+                            <p className={styles.introP}>
                                 Founded with a vision to revolutionize how industries in Theni handle water purification, Mahizh RO Innovation has grown into a trusted partner for hospitals, factories, and hotels.
                             </p>
-                            <p className="text-lg text-muted leading-relaxed mb-10">
+                            <p className={`${styles.introP} ${styles.introP2}`}>
                                 Our systems are designed not just for purification, but for efficiency. We understand the local water challenges in Tamil Nadu and engineer our RO plants to handle varying TDS levels while minimizing waste.
                             </p>
-                            <div className="grid grid-cols-2 gap-8">
+                            <div className={styles.statsGrid}>
                                 <div>
-                                    <div className="text-4xl font-black text-primary mb-2">15+</div>
-                                    <div className="text-sm font-bold uppercase tracking-wider text-muted">Years Experience</div>
+                                    <div className={styles.statValue}>15+</div>
+                                    <div className={styles.statLabel}>Years Experience</div>
                                 </div>
                                 <div>
-                                    <div className="text-4xl font-black text-primary mb-2">100+</div>
-                                    <div className="text-sm font-bold uppercase tracking-wider text-muted">Projects Completed</div>
+                                    <div className={styles.statValue}>100+</div>
+                                    <div className={styles.statLabel}>Projects Completed</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="bg-surface rounded-[3rem] aspect-square flex items-center justify-center p-12 border border-foreground/5 relative overflow-hidden group">
-                                <History className="h-48 w-48 text-primary opacity-10 group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-                                <div className="absolute bottom-10 left-10 p-8 bg-white rounded-3xl shadow-2xl border border-foreground/5">
-                                    <MapPin className="h-8 w-8 text-primary mb-4" />
-                                    <h4 className="font-bold text-lg mb-1">Local Headquarters</h4>
-                                    <p className="text-sm text-muted">Operating directly from the heart of Theni.</p>
+                        <div className={styles.relative}>
+                            <div className={styles.hqCardSur}>
+                                <History className={styles.hqIconBig} />
+                                <div className={styles.hqGradient} />
+                                <div className={styles.hqOverlay}>
+                                    <MapPin className={styles.hqIconSmall} />
+                                    <h4 className={styles.hqH4}>Local Headquarters</h4>
+                                    <p className={styles.hqP}>Operating directly from the heart of Theni.</p>
                                 </div>
                             </div>
                         </div>
@@ -77,24 +78,24 @@ export default function AboutPage() {
             </section>
 
             {/* Mission and Vision */}
-            <section className="py-24 bg-surface">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-foreground/5 transition-transform hover:-translate-y-2 duration-300">
-                            <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
-                                <Target className="h-8 w-8 text-primary" />
+            <section className={styles.sectionBgSurface}>
+                <div className={styles.container}>
+                    <div className={styles.missionVisionGrid}>
+                        <div className={styles.mvCard}>
+                            <div className={styles.mvIconWrapper}>
+                                <Target className={styles.mvIcon} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
-                            <p className="text-muted leading-relaxed">
+                            <h3 className={styles.mvH3}>Our Mission</h3>
+                            <p className={styles.mvP}>
                                 To empower industries with high-performance water purification systems that are cost-effective, energy-efficient, and easy to maintain, ensuring zero compromise on water quality.
                             </p>
                         </div>
-                        <div className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-foreground/5 transition-transform hover:-translate-y-2 duration-300">
-                            <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
-                                <Eye className="h-8 w-8 text-primary" />
+                        <div className={styles.mvCard}>
+                            <div className={styles.mvIconWrapper}>
+                                <Eye className={styles.mvIcon} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6">Our Vision</h3>
-                            <p className="text-muted leading-relaxed">
+                            <h3 className={styles.mvH3}>Our Vision</h3>
+                            <p className={styles.mvP}>
                                 To be the gold standard for industrial water purification in South India, known for innovation, engineering excellence, and unwavering commitment to customer success.
                             </p>
                         </div>
@@ -103,16 +104,16 @@ export default function AboutPage() {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className={styles.sectionBgWhite}>
+                <div className={styles.container}>
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl font-extrabold text-foreground mb-4">Why Choose Mahizh RO?</h2>
-                        <p className="text-muted max-w-2xl mx-auto">
+                        <h2 className={styles.whyH2}>Why Choose Mahizh RO?</h2>
+                        <p className={styles.whySubtitle}>
                             We combine technical expertise with a deep understanding of local business needs.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className={styles.whyGrid}>
                         {[
                             {
                                 icon: Award,
@@ -135,12 +136,12 @@ export default function AboutPage() {
                                 desc: "Advanced technology to minimize water wastage."
                             }
                         ].map((item, i) => (
-                            <div key={i} className="text-center p-8 rounded-3xl hover:bg-surface transition-colors group">
-                                <div className="bg-primary/10 h-16 w-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
-                                    <item.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                            <div key={i} className={styles.whyCard}>
+                                <div className={styles.whyIconWrapper}>
+                                    <item.icon className={styles.whyIcon} />
                                 </div>
-                                <h4 className="font-bold text-lg mb-3">{item.title}</h4>
-                                <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                                <h4 className={styles.whyH4}>{item.title}</h4>
+                                <p className={styles.whyP}>{item.desc}</p>
                             </div>
                         ))}
                     </div>

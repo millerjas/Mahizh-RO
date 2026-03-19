@@ -1,0 +1,180 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.3s;
+}
+.navScrolled {
+  /* Using global glass-morphism class or variables directly */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.5rem 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.navTransparent {
+  background-color: transparent;
+  padding: 1rem 0;
+}
+
+.navContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 640px) { .navContainer { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .navContainer { padding: 0 2rem; } }
+
+.logoSpace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoIconWrap {
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+.logoLink:hover .logoIconWrap {
+  background-color: var(--color-primary-dark);
+}
+
+.logoIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: white;
+}
+
+.logoTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.logoSub {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-top: -0.25rem;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .desktopNav { display: flex; }
+}
+
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(17, 24, 39, 0.8);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.quoteBtn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.2);
+  text-decoration: none;
+}
+.quoteBtn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.mobileBtnWrap {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .mobileBtnWrap { display: none; }
+}
+
+.mobileBtn {
+  color: var(--foreground);
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobileNav {
+  background-color: var(--background);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .mobileNav { display: none; }
+}
+
+.mobileNavInner {
+  padding: 0.5rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+@media (min-width: 640px) { .mobileNavInner { padding: 0.5rem 1.5rem 1.5rem; } }
+
+.mobileLink {
+  display: block;
+  padding: 1rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(17, 24, 39, 0.8);
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.mobileLink:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.mobileQuoteWrap {
+  padding: 1rem 0.75rem 0;
+}
+
+.mobileQuoteBtn {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  display: block;
+  box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.2);
+  text-decoration: none;
+}

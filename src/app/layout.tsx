@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import styles from "./layout.module.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,11 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} font-sans antialiased bg-background text-foreground`}
-      >
-        <div className="flex flex-col min-h-screen">
+    <html lang="en" className={styles.html}>
+      <body className={`${inter.variable} ${styles.body}`}>
+        <div className={styles.mainContainer}>
           {children}
         </div>
       </body>

@@ -1,0 +1,235 @@
+.headerSection {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.headerBgBlur {
+  position: absolute;
+  bottom: -2.5rem;
+  right: -12rem;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(30, 64, 175, 0.05);
+  border-radius: 9999px;
+  filter: blur(64px);
+}
+
+.headerContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+@media (min-width: 640px) { .headerContainer { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .headerContainer { padding: 0 2rem; } }
+
+.headerH1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+}
+
+.primaryItalic {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.headerP {
+  font-size: 1.25rem;
+  color: var(--color-muted);
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.625;
+}
+
+.sectionBgWhite {
+  padding: 6rem 0;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 640px) { .container { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .container { padding: 0 2rem; } }
+
+.listSpace {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.indRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .indRow { flex-direction: row; }
+}
+
+.indRowReverse {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .indRowReverse { flex-direction: row-reverse; }
+}
+
+.indContent {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .indContent { width: 50%; }
+}
+
+.indIconWrapper {
+  background-color: rgba(30, 64, 175, 0.05);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.indIconSm {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: var(--color-primary);
+}
+
+.indTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+}
+
+.indDesc {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+}
+
+.whyCard {
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(17, 24, 39, 0.05);
+  margin-bottom: 2rem;
+}
+
+.whyHeader {
+  font-size: 0.875rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.dropletIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.whyP {
+  color: rgba(17, 24, 39, 0.8);
+  line-height: 1.625;
+  font-style: italic;
+}
+
+.featGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .featGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.featItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.checkIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.indImage {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .indImage { width: 50%; }
+}
+
+.imgCard {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-surface);
+  border-radius: 3rem;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  position: relative;
+}
+
+.logoBig {
+  height: 8rem;
+  width: 8rem;
+  color: var(--color-primary);
+  opacity: 0.1;
+  transition: transform 0.7s;
+}
+.imgCard:hover .logoBig {
+  transform: scale(1.25);
+}
+
+.imgGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(30, 64, 175, 0.1), transparent, rgba(30, 64, 175, 0.05));
+}
+
+.dotsRow {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(30, 64, 175, 0.2);
+}

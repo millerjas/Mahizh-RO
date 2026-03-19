@@ -1,0 +1,99 @@
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(17, 24, 39, 0.05);
+  transition: all 0.2s;
+}
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.05), 0 8px 10px -6px rgba(30, 64, 175, 0.05);
+}
+
+.iconWrap {
+  background-color: rgba(30, 64, 175, 0.1);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.2s;
+}
+.card:hover .iconWrap {
+  background-color: var(--color-primary);
+}
+
+.icon {
+  height: 1.75rem;
+  width: 1.75rem;
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+.card:hover .icon {
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  transition: color 0.2s;
+}
+.card:hover .cardTitle {
+  color: var(--color-primary);
+}
+
+.cardDesc {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+}
+
+.benefitsList {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.75rem;
+  color: rgba(107, 114, 128, 0.8);
+}
+
+.bullet {
+  height: 0.375rem;
+  width: 0.375rem;
+  border-radius: 9999px;
+  background-color: rgba(30, 64, 175, 0.4);
+  margin-top: 0.375rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.learnMore {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.card:hover .learnMore {
+  padding-left: 0.5rem;
+}
+
+.arrow {
+  height: 1rem;
+  width: 1rem;
+  margin-left: 0.5rem;
+}

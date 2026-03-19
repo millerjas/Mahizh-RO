@@ -1,6 +1,7 @@
 import { LucideIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import styles from "./ServiceCard.module.css";
 
 interface ServiceCardProps {
     title: string;
@@ -19,29 +20,29 @@ export default function ServiceCard({ title, description, benefits, icon: Icon, 
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             whileHover={{ y: -5 }}
-            className="bg-white p-8 rounded-3xl shadow-sm border border-foreground/5 hover:shadow-xl hover:shadow-primary/5 transition-all group"
+            className={styles.card}
         >
-            <div className="bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                <Icon className="h-7 w-7 text-primary group-hover:text-white transition-colors" />
+            <div className={styles.iconWrap}>
+                <Icon className={styles.icon} />
             </div>
-            <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">{title}</h3>
-            <p className="text-muted text-sm leading-relaxed mb-6">
+            <h3 className={styles.cardTitle}>{title}</h3>
+            <p className={styles.cardDesc}>
                 {description}
             </p>
 
             {benefits && (
-                <ul className="mb-8 space-y-2">
+                <ul className={styles.benefitsList}>
                     {benefits.slice(0, 3).map((benefit, i) => (
-                        <li key={i} className="flex items-start text-xs text-muted/80">
-                            <div className="h-1.5 w-1.5 rounded-full bg-primary/40 mt-1.5 mr-2 shrink-0" />
+                        <li key={i} className={styles.benefitItem}>
+                            <div className={styles.bullet} />
                             {benefit}
                         </li>
                     ))}
                 </ul>
             )}
 
-            <Link href={href} className="inline-flex items-center text-sm font-bold text-primary group-hover:pl-2 transition-all">
-                Learn More <ArrowRight className="h-4 w-4 ml-2" />
+            <Link href={href} className={styles.learnMore}>
+                Learn More <ArrowRight className={styles.arrow} />
             </Link>
         </motion.div>
     );

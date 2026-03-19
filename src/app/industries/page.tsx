@@ -3,6 +3,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/sections/CTASection";
+import styles from "./page.module.css";
 import {
     Warehouse,
     Hotel,
@@ -58,17 +59,17 @@ export default function IndustriesPage() {
             <Navbar />
 
             {/* Page Header */}
-            <section className="pt-32 pb-20 bg-surface border-b border-foreground/5 overflow-hidden relative">
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mb-10" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <section className={styles.headerSection}>
+                <div className={styles.headerBgBlur} />
+                <div className={styles.headerContainer}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-5xl font-extrabold text-foreground mb-6">
-                            Industries <span className="text-primary italic">We Serve</span>
+                        <h1 className={styles.headerH1}>
+                            Industries <span className={styles.primaryItalic}>We Serve</span>
                         </h1>
-                        <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+                        <p className={styles.headerP}>
                             Tailored water purification solutions for a wide range of industrial and commercial applications in and around Theni.
                         </p>
                     </motion.div>
@@ -76,52 +77,52 @@ export default function IndustriesPage() {
             </section>
 
             {/* Industries Grid */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="space-y-32">
+            <section className={styles.sectionBgWhite}>
+                <div className={styles.container}>
+                    <div className={styles.listSpace}>
                         {industries.map((industry, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-start`}
+                                className={i % 2 === 1 ? styles.indRowReverse : styles.indRow}
                             >
-                                <div className="lg:w-1/2">
-                                    <div className="bg-primary/5 w-20 h-20 rounded-3xl flex items-center justify-center mb-8">
-                                        <industry.icon className="h-10 w-10 text-primary" />
+                                <div className={styles.indContent}>
+                                    <div className={styles.indIconWrapper}>
+                                        <industry.icon className={styles.indIconSm} />
                                     </div>
-                                    <h2 className="text-3xl font-bold text-foreground mb-6">{industry.title}</h2>
-                                    <p className="text-lg text-muted leading-relaxed mb-6">
+                                    <h2 className={styles.indTitle}>{industry.title}</h2>
+                                    <p className={styles.indDesc}>
                                         {industry.description}
                                     </p>
 
-                                    <div className="bg-surface p-8 rounded-3xl border border-foreground/5 mb-8">
-                                        <h4 className="text-sm font-black uppercase tracking-widest text-primary mb-4 flex items-center">
-                                            <Droplet className="h-4 w-4 mr-2" /> Why RO Water is Crucial
+                                    <div className={styles.whyCard}>
+                                        <h4 className={styles.whyHeader}>
+                                            <Droplet className={styles.dropletIcon} /> Why RO Water is Crucial
                                         </h4>
-                                        <p className="text-foreground/80 leading-relaxed italic">
+                                        <p className={styles.whyP}>
                                             {industry.whyImportant}
                                         </p>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className={styles.featGrid}>
                                         {industry.features.map((feature, j) => (
-                                            <div key={j} className="flex items-center space-x-3 text-sm font-bold text-muted">
-                                                <CheckCircle2 className="h-5 w-5 text-secondary shrink-0" />
+                                            <div key={j} className={styles.featItem}>
+                                                <CheckCircle2 className={styles.checkIcon} />
                                                 <span>{feature}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
-                                <div className="lg:w-1/2 w-full">
-                                    <div className="aspect-[4/3] bg-surface rounded-[3rem] overflow-hidden border border-foreground/5 flex items-center justify-center p-20 relative group">
-                                        <industry.icon className="h-32 w-32 text-primary opacity-10 group-hover:scale-125 transition-transform duration-700" />
-                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-                                        <div className="absolute top-10 right-10 flex space-x-2">
+                                <div className={styles.indImage}>
+                                    <div className={styles.imgCard}>
+                                        <industry.icon className={styles.logoBig} />
+                                        <div className={styles.imgGradient} />
+                                        <div className={styles.dotsRow}>
                                             {[1, 2, 3].map(dot => (
-                                                <div key={dot} className="h-2 w-2 rounded-full bg-primary/20" />
+                                                <div key={dot} className={styles.dot} />
                                             ))}
                                         </div>
                                     </div>
