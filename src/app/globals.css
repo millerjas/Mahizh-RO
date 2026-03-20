@@ -1,20 +1,33 @@
 :root {
-  --color-primary: #1e40af;
-  --color-primary-dark: #1e3a8a;
-  --color-secondary: #065f46;
-  --color-accent: #60a5fa;
-  --color-background: #ffffff;
-  --color-foreground: #111827;
-  --color-muted: #4b5563;
-  --color-surface: #f3f4f6;
+  /* Primary - Trust & Water */
+  --color-primary: #0ea5e9;        /* Sky blue */
+  --color-primary-dark: #0369a1;   /* Deep water blue */
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  
-  --background: #ffffff;
-  --foreground: #111827;
+  /* Secondary - Freshness */
+  --color-secondary: #10b981;      /* Fresh aqua green */
+
+  /* Accent - Highlights / CTA */
+  --color-accent: #38bdf8;         /* Light water blue */
+
+  /* Backgrounds */
+  --color-background: #f8fafc;     /* Soft white (less harsh) */
+  --color-surface: #e0f2fe;        /* Light water tint */
+
+  /*gradient-primary*/
+  --gradient-primary: linear-gradient(135deg, #0ea5e9, #38bdf8);
+
+  /* Text */
+  --color-foreground: #0f172a;     /* Dark navy (better than pure black) */
+  --color-muted: #64748b;          /* Subtle gray */
+
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f172a;
     --foreground: #f8fafc;
@@ -23,7 +36,7 @@
     --color-surface: #1e293b;
     --color-muted: #9ca3af;
   }
-}
+} */
 
 *, *::before, *::after {
   box-sizing: border-box;

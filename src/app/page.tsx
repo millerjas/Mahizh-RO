@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import ServiceCard from "@/components/ui/ServiceCard";
 import CTASection from "@/components/sections/CTASection";
+import Bar from "@/components/marquee/page";
 import styles from "./page.module.css";
 import {
   Droplet,
@@ -68,6 +69,7 @@ const testimonials = [
 export default function Home() {
   return (
     <main>
+      {/* <Bar /> */}
       <Navbar />
       <Hero />
 
