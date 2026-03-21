@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/sections/CTASection";
+import CTASection from "@/components/Home/CTASection";
 import styles from "./page.module.css";
 import {
     Warehouse,

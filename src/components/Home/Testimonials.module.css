@@ -1,0 +1,130 @@
+.testSection {
+  padding: 6rem 0;
+  background-color: var(--background);
+  border-top: 1px solid rgba(17, 24, 39, 0.05);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .categoryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.categoryTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(30, 64, 175, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.scrollWrapper {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  /* Fades top and bottom for smooth appearance */
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.scrollTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: absolute;
+  width: 100%;
+}
+
+@keyframes scrollVertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%); /* Half the content, assuming duplicated items */
+  }
+}
+
+.scrollSlow {
+  animation: scrollVertical 25s linear infinite;
+}
+
+.scrollFast {
+  animation: scrollVertical 20s linear infinite;
+  animation-delay: -5s; /* Stagger animations */
+}
+
+/* Pause on hover */
+.scrollWrapper:hover .scrollTrack {
+  animation-play-state: paused;
+}
+
+.card {
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(17, 24, 39, 0.05);
+}
+
+.review {
+  font-style: italic;
+  color: var(--color-muted);
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-surface);
+}
+
+.name {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.location {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}

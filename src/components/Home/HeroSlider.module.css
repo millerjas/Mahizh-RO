@@ -1,0 +1,124 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  min-height: 100px;
+  margin-top: 67px;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.content {
+  max-width: 800px;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.prevBtn {
+  left: 1rem;
+}
+
+.nextBtn {
+  right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .prevBtn {
+    left: 2rem;
+  }
+  .nextBtn {
+    right: 2rem;
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.activeDot {
+  background: #ffffff;
+}
