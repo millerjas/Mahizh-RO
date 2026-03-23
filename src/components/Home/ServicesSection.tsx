@@ -6,14 +6,14 @@ import { Droplet, Settings, Droplets, ArrowUpCircle, Sun, FlaskConical, Wrench, 
 import styles from './ServicesSection.module.css';
 
 const services = [
-  { id: 1, title: 'Domestic RO', desc: 'Compact and efficient purifiers for home use.', icon: Droplet, image: '/services/service1.png' },
-  { id: 2, title: 'Commercial RO', desc: 'High-yield systems for offices, schools, and hospitals.', icon: Settings, image: '/services/service1.png' },
-  { id: 3, title: 'Dispenser Plant', desc: 'Integrated cooling and heating water dispensers.', icon: Droplets, image: '/services/service1.png' },
-  { id: 4, title: 'Softener & Iron Remover', desc: 'Advanced multimedia plants for hard water treatment.', icon: FlaskConical, image: '/services/service1.png' },
-  { id: 5, title: 'Pressure Pumps', desc: 'Maintain optimal water pressure across all outlets.', icon: ArrowUpCircle, image: '/services/service1.png' },
-  { id: 6, title: 'Solar Water Heater', desc: 'Eco-friendly hot water solutions for all seasons.', icon: Sun, image: '/services/service1.png' },
-  { id: 7, title: 'Chemicals', desc: 'Premium grade treatment chemicals for plant maintenance.', icon: ShieldCheck, image: '/services/service1.png' },
-  { id: 8, title: 'RO All Spares', desc: 'Genuine spare parts for reliable operation.', icon: Wrench, image: '/services/service1.png' },
+  { id: 1, slug: 'domestic-ro', title: 'Domestic RO', desc: 'Compact and efficient purifiers for home use.', icon: Droplet, image: '/services/service1.png' },
+  { id: 2, slug: 'commercial-ro', title: 'Commercial RO', desc: 'High-yield systems for offices, schools, and hospitals.', icon: Settings, image: '/services/service1.png' },
+  { id: 3, slug: 'dispenser', title: 'Dispenser Plant', desc: 'Integrated cooling and heating water dispensers.', icon: Droplets, image: '/services/service1.png' },
+  { id: 4, slug: 'softener', title: 'Softener & Iron Remover', desc: 'Advanced multimedia plants for hard water treatment.', icon: FlaskConical, image: '/services/service1.png' },
+  { id: 5, slug: 'pumps', title: 'Pressure Pumps', desc: 'Maintain optimal water pressure across all outlets.', icon: ArrowUpCircle, image: '/services/service1.png' },
+  { id: 6, slug: 'solar', title: 'Solar Water Heater', desc: 'Eco-friendly hot water solutions for all seasons.', icon: Sun, image: '/services/service1.png' },
+  { id: 7, slug: 'chemicals', title: 'Chemicals', desc: 'Premium grade treatment chemicals for plant maintenance.', icon: ShieldCheck, image: '/services/service1.png' },
+  { id: 8, slug: 'spares', title: 'RO All Spares', desc: 'Genuine spare parts for reliable operation.', icon: Wrench, image: '/services/service1.png' },
 ];
 
 export default function ServicesSection() {
@@ -42,7 +42,7 @@ export default function ServicesSection() {
           
           <div className={styles.scrollView} ref={scrollRef}>
             {services.map((service) => (
-              <Link href="#" key={service.id} className={styles.card}>
+              <Link href={`/services/${service.slug}`} key={service.id} className={styles.card}>
                 <div className={styles.imageWrapper}>
                   <img src={service.image} alt={service.title} className={styles.image} />
                   <div className={styles.iconWrapper}>

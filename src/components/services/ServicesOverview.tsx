@@ -21,7 +21,7 @@ export default function ServicesOverview() {
           {SERVICE_CARDS.map((svc) => (
             <Link
               key={svc.id}
-              href={`#${svc.id}`}
+              href={`/services/${svc.id}`}
               className={styles.serviceCard}
               role="listitem"
             >
