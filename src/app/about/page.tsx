@@ -2,158 +2,151 @@
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/Home/CTASection";
+import Achievements from "@/components/Home/Achievements";
+import Testimonials from "@/components/Home/Testimonials";
 import styles from "./page.module.css";
-import {
-    Target,
-    Eye,
-    Award,
-    ShieldCheck,
-    History,
-    MapPin,
-    Briefcase,
-    Droplet
-} from "lucide-react";
-import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
 export default function AboutPage() {
-    return (
-        <main>
-            <Navbar />
+  return (
+    <main className={styles.main}>
+      <Navbar />
 
-            {/* Hero Section */}
-            <section className={styles.heroSection}>
-                <div className={styles.heroBgBlur} />
-                <div className={styles.heroContainer}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                    >
-                        <h1 className={styles.heroH1}>
-                            Our <span className={styles.primaryItalic}>Story & Mission</span>
-                        </h1>
-                        <p className={styles.heroP}>
-                            Leading the way in industrial water purification across Theni. Mahizh RO Innovation is dedicated to providing high-quality, sustainable water solutions.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
+      {/* 1. Hero Section (Like Image 1) */}
+      <section className={styles.heroSection}>
+        <div 
+          className={styles.heroImage} 
+          style={{ backgroundImage: "url('/Hero-images/Hero1.png')" }}
+        >
+          <div className={styles.heroOverlay}>
+            <div className={styles.container}>
+              <div className={styles.heroContent}>
+                <p className={styles.heroTagline}>PIONEERING PURE WATER SOLUTIONS</p>
+                <h1 className={styles.heroTitle}>
+                  In water purification,<br />
+                  Mahizh RO Innovation is the master architect<br />
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Intro Section */}
-            <section className={styles.sectionBgWhite}>
-                <div className={styles.container}>
-                    <div className={styles.introGrid}>
-                        <div>
-                            <h2 className={styles.introH2}>Pioneering Pure Water Solutions</h2>
-                            <p className={styles.introP}>
-                                Founded with a vision to revolutionize how industries in Theni handle water purification, Mahizh RO Innovation has grown into a trusted partner for hospitals, factories, and hotels.
-                            </p>
-                            <p className={`${styles.introP} ${styles.introP2}`}>
-                                Our systems are designed not just for purification, but for efficiency. We understand the local water challenges in Tamil Nadu and engineer our RO plants to handle varying TDS levels while minimizing waste.
-                            </p>
-                            <div className={styles.statsGrid}>
-                                <div>
-                                    <div className={styles.statValue}>15+</div>
-                                    <div className={styles.statLabel}>Years Experience</div>
-                                </div>
-                                <div>
-                                    <div className={styles.statValue}>100+</div>
-                                    <div className={styles.statLabel}>Projects Completed</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.relative}>
-                            <div className={styles.hqCardSur}>
-                                <History className={styles.hqIconBig} />
-                                <div className={styles.hqGradient} />
-                                <div className={styles.hqOverlay}>
-                                    <MapPin className={styles.hqIconSmall} />
-                                    <h4 className={styles.hqH4}>Local Headquarters</h4>
-                                    <p className={styles.hqP}>Operating directly from the heart of Theni.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      {/* 2. Dual Image + Text Section (Like Image 2) */}
+      <section className={styles.dualSection}>
+        <div className={styles.container}>
+          <div className={styles.dualGrid}>
+            
+            {/* Left Column */}
+            <div className={styles.dualLeft}>
+              <div className={styles.dualTextLeft}>
+                <h2>Diverse minds,</h2>
+                <p className={styles.italicSubtext}>united mission.</p>
+              </div>
+              <div className={styles.dualImgLeftWrapper}>
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+                  alt="Our Team" 
+                  className={styles.dualImgLeft} 
+                />
+              </div>
+            </div>
 
-            {/* Mission and Vision */}
-            <section className={styles.sectionBgSurface}>
-                <div className={styles.container}>
-                    <div className={styles.missionVisionGrid}>
-                        <div className={styles.mvCard}>
-                            <div className={styles.mvIconWrapper}>
-                                <Target className={styles.mvIcon} />
-                            </div>
-                            <h3 className={styles.mvH3}>Our Mission</h3>
-                            <p className={styles.mvP}>
-                                To empower industries with high-performance water purification systems that are cost-effective, energy-efficient, and easy to maintain, ensuring zero compromise on water quality.
-                            </p>
-                        </div>
-                        <div className={styles.mvCard}>
-                            <div className={styles.mvIconWrapper}>
-                                <Eye className={styles.mvIcon} />
-                            </div>
-                            <h3 className={styles.mvH3}>Our Vision</h3>
-                            <p className={styles.mvP}>
-                                To be the gold standard for industrial water purification in South India, known for innovation, engineering excellence, and unwavering commitment to customer success.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Right Column */}
+            <div className={styles.dualRight}>
+              <div className={styles.dualImgRightWrapper}>
+                <img 
+                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" 
+                  alt="Engineering Excellence" 
+                  className={styles.dualImgRight} 
+                />
+              </div>
+              <div className={styles.dualTextRight}>
+                <p>
+                  We are a symphony of talent, composing cutting-edge RO plants and water treatment solutions. From design to installation, our collaborative approach ensures that every drop counts towards a more sustainable and pure tomorrow.
+                </p>
+              </div>
+            </div>
 
-            {/* Why Choose Us */}
-            <section className={styles.sectionBgWhite}>
-                <div className={styles.container}>
-                    <div className="text-center mb-20">
-                        <h2 className={styles.whyH2}>Why Choose Mahizh RO?</h2>
-                        <p className={styles.whySubtitle}>
-                            We combine technical expertise with a deep understanding of local business needs.
-                        </p>
-                    </div>
+          </div>
+        </div>
+      </section>
 
-                    <div className={styles.whyGrid}>
-                        {[
-                            {
-                                icon: Award,
-                                title: "Expert Engineering",
-                                desc: "Systems designed by industrial RO specialists."
-                            },
-                            {
-                                icon: ShieldCheck,
-                                title: "Guaranteed Purity",
-                                desc: "Rigorous testing to meet ISO and health standards."
-                            },
-                            {
-                                icon: Briefcase,
-                                title: "End-to-End Service",
-                                desc: "From initial design to 24/7 maintenance support."
-                            },
-                            {
-                                icon: Droplet,
-                                title: "Eco-Friendly",
-                                desc: "Advanced technology to minimize water wastage."
-                            }
-                        ].map((item, i) => (
-                            <div key={i} className={styles.whyCard}>
-                                <div className={styles.whyIconWrapper}>
-                                    <item.icon className={styles.whyIcon} />
-                                </div>
-                                <h4 className={styles.whyH4}>{item.title}</h4>
-                                <p className={styles.whyP}>{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* 3. Achievements Section (Reused) */}
+      <Achievements />
 
-            <CTASection
-                title="Experience the Difference"
-                subtitle="Partner with Theni's most trusted water purification experts today."
-            />
+      {/* 4. Vision & Mission (Like Image 3 - Center Image Layout) */}
+      <section className={styles.visionSection}>
+        <div className={styles.container}>
+          <div className={styles.visionGrid}>
+            
+            <div className={styles.visionTopLeft}>
+              <p className={styles.visionText}>
+                Welcome to Mahizh RO Innovation, where passion meets proficiency in the heart of Theni, Tamil Nadu. Our vision is to be the undisputed gold standard for industrial water purification across South India.
+              </p>
+            </div>
 
-            <Footer />
-        </main>
-    );
+            <div className={styles.visionCenterImgWrapper}>
+              <img 
+                src="/Hero-images/Hero1.png" 
+                alt="Vision Tower" 
+                className={styles.visionCenterImg} 
+              />
+            </div>
+
+            <div className={styles.visionBottomRight}>
+              <p className={styles.missionText}>
+                We are more than just a purification supplier; we are a collective of relentless engineers, designers, & strategists on a mission to redefine water sustainability for modern industries and households alike.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Founder Section */}
+      <section className={styles.founderSection}>
+        <div className={styles.container}>
+          <div className={styles.founderGrid}>
+            
+            <div className={styles.founderLeft}>
+              <img 
+                src="/Hero-images/Hero1.png" 
+                alt="Founder" 
+                className={styles.founderImg} 
+              />
+            </div>
+
+            <div className={styles.founderRight}>
+              <div className={styles.founderIntro}>
+                <h2 className={styles.founderName}>Meet Our Founder</h2>
+                <p className={styles.founderTitle}>Managing Director, Mahizh RO Innovation</p>
+              </div>
+              
+              <div className={styles.quoteWrapper}>
+                <Quote className={styles.quoteIcon} />
+                <h3 className={styles.quoteText}>
+                  "Pure water is not just a resource; it's the foundation of every successful industry and the heartbeat of every healthy home."
+                </h3>
+              </div>
+              
+              <div className={styles.founderDesc}>
+                <p>
+                  With over 18 years of deeply rooted experience in water treatment engineering, our founder established Mahizh RO Innovation to bridge the gap between high-end technology and affordable, reliable access to pure water. Driven by a continuous passion for quality and innovation, the company continues to scale new heights in serving clients ranging from domestic households to massive industrial complexes.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Happy Clients Section (Reused existing Testimonials) */}
+      <div className={styles.clientsWrapper}>
+        <Testimonials />
+      </div>
+
+      <Footer />
+    </main>
+  );
 }

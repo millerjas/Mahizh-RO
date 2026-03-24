@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
+import GlobalOverlays from "@/components/ui/GlobalOverlays";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={styles.html}>
       <body className={`${inter.variable} ${styles.body}`}>
+        <GlobalOverlays />
         <div className={styles.mainContainer}>
           {children}
         </div>
