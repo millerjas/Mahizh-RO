@@ -3,6 +3,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/Home/CTASection";
+import ServicesCTA from "@/components/services/ServicesCTA";
 import styles from "./page.module.css";
 import {
     Target,
@@ -148,10 +149,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <CTASection
-                title="Experience the Difference"
-                subtitle="Partner with Theni's most trusted water purification experts today."
-            />
+            <ServicesCTA />
 
             <Footer />
         </main>

@@ -1,20 +1,30 @@
+// app/services/[slug]/page.tsx
+
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SERVICE_CARDS } from "@/lib/services-data";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/Home/CTASection";
+import ServicesCTA from "@/components/services/ServicesCTA";
+import ProductsSection from "@/components/services/ProductsSection";
 import {
-    DomesticRO,
-    CommercialRO,
-    DispenserPlant,
-    SoftenerIronRemover,
-    PressurePumps,
-    SolarWaterHeater,
-    ROChemicals,
-    ROSpareParts,
+  DomesticRO,
+  CommercialRO,
+  DispenserPlant,
+  SoftenerIronRemover,
+  PressurePumps,
+  SolarWaterHeater,
+  ROChemicals,
+  ROSpareParts,
 } from "@/components/services/ServiceDetails";
 
-const COMPONENT_MAP: Record<string, React.ComponentType> = {
+// ─────────────────────────────────────────────────────────────────────────────
+// Component map — typed against known service IDs
+// ─────────────────────────────────────────────────────────────────────────────
+
+type ServiceSlug = (typeof SERVICE_CARDS)[number]["id"];
+
+const COMPONENT_MAP: Record<ServiceSlug, React.ComponentType> = {
   "domestic-ro": DomesticRO,
   "commercial-ro": CommercialRO,
   dispenser: DispenserPlant,
@@ -25,11 +35,50 @@ const COMPONENT_MAP: Record<string, React.ComponentType> = {
   spares: ROSpareParts,
 };
 
-export function generateStaticParams() {
-  return SERVICE_CARDS.map((svc) => ({
-    slug: svc.id,
-  }));
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────────────────────
+
+function isValidSlug(slug: string): slug is ServiceSlug {
+  return slug in COMPONENT_MAP;
 }
+
+function getServiceCard(slug: ServiceSlug) {
+  return SERVICE_CARDS.find((svc) => svc.id === slug);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Static params
+// ─────────────────────────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return SERVICE_CARDS.map((svc) => ({ slug: svc.id }));
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Dynamic metadata per service
+// ─────────────────────────────────────────────────────────────────────────────
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  if (!isValidSlug(slug)) return {};
+
+  const card = getServiceCard(slug);
+
+  return {
+    title: card?.title ?? slug,
+    description: card?.description ?? undefined,
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Page
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default async function ServiceDetailPage({
   params,
@@ -37,26 +86,22 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  if (!isValidSlug(slug)) notFound();
+
   const Component = COMPONENT_MAP[slug];
 
-  if (!Component) {
-    notFound();
-  }
-
   return (
-    <main>
+    <>
       <Navbar />
 
       <main style={{ paddingTop: "80px" }}>
         <Component />
+        <ProductsSection />
+        <ServicesCTA />
       </main>
 
-      <CTASection
-        title="Custom Solutions for Your Business"
-        subtitle="Need a specialized water purification system? Let's discuss your requirements today."
-      />
-
       <Footer />
-    </main>
+    </>
   );
 }

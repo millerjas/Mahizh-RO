@@ -1,6 +1,5 @@
-// components/services/ServicesOverview.tsx
-
 import Link from "next/link";
+import Image from "next/image";
 import { SERVICE_CARDS } from "@/lib/services-data";
 import styles from "./services.module.css";
 
@@ -25,12 +24,21 @@ export default function ServicesOverview() {
               className={styles.serviceCard}
               role="listitem"
             >
-              <div className={styles.serviceCardIcon} aria-hidden="true">
-                {svc.icon}
+              <div className={styles.serviceCardImage}>
+                <Image
+                  src={svc.image}
+                  alt={svc.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 360px"
+                  className={styles.serviceCardImg}
+                />
               </div>
-              <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
-              <p className={styles.serviceCardDesc}>{svc.description}</p>
-              <span className={styles.serviceCardArrow}>{svc.cta} →</span>
+
+              <div className={styles.serviceCardBody}>
+                <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
+                <p className={styles.serviceCardDesc}>{svc.description}</p>
+                <span className={styles.serviceCardArrow}>{svc.cta} →</span>
+              </div>
             </Link>
           ))}
         </div>

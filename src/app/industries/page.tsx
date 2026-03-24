@@ -2,7 +2,8 @@
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CTASection from "@/components/Home/CTASection";
+// import CTASection from "@/components/Home/CTASection";
+import ServicesCTA from "@/components/services/ServicesCTA";
 import styles from "./page.module.css";
 import {
     Warehouse,
@@ -132,11 +133,8 @@ export default function IndustriesPage() {
                     </div>
                 </div>
             </section>
-
-            <CTASection
-                title="Solutions for Your Sector"
-                subtitle="Contact our engineers to design a system that meets your industry standards."
-            />
+            
+            <ServicesCTA />
 
             <Footer />
         </main>

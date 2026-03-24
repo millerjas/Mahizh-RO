@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRef } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './ProductsSection.module.css';
 
 const products = [
@@ -19,46 +19,74 @@ export default function ProductsSection() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      const cardWidth = 280 + 16; // card width + gap
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -cardWidth : cardWidth,
+        behavior: 'smooth',
+      });
     }
   };
 
   return (
     <section className={styles.productsSection}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>Featured Products</h2>
-          <p className={styles.subtitle}>Discover our range of advanced water purification systems built for reliability.</p>
-        </div>
 
-        <div className={styles.carouselContainer}>
-          <button className={`${styles.navBtn} ${styles.prevBtn}`} onClick={() => scroll('left')}>
-            <ChevronLeft size={24} />
-          </button>
+        <div className={styles.layout}>
 
-          <div className={styles.scrollView} ref={scrollRef}>
-            {products.map((product) => (
-              <Link href="#" key={product.id} className={styles.card}>
-                <div className={styles.imageWrapper}>
-                  <img src={product.image} alt={product.name} className={styles.image} />
-                </div>
-                <div className={styles.content}>
-                  <h3 className={styles.productName}>{product.name}</h3>
-                  <p className={styles.productDesc}>{product.desc}</p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span className={styles.learnMore}>Learn More</span>
-                  <ArrowRight className={styles.arrowIcon} size={16} />
-                </div>
-              </Link>
-            ))}
+          {/* LEFT — sticky info panel */}
+          <div className={styles.leftPanel}>
+            <p className={styles.sectionLabel}>Our Products</p>
+            <h2 className={styles.title}>Water Purification Systems</h2>
+            <p className={styles.subtitle}>
+              From compact home purifiers to large-scale industrial plants — every
+              product is built for Tamil Nadu's water conditions and long-term reliability.
+            </p>
+            <Link href="/products" className={styles.allProductsLink}>
+              View all products <ArrowRight size={15} />
+            </Link>
+
+            <div className={styles.leftImage}>
+              <img
+                src="/services/rofilter.png"
+                alt="Water purification system"
+                className={styles.panelImg}
+              />
+            </div>
           </div>
 
-          <button className={`${styles.navBtn} ${styles.nextBtn}`} onClick={() => scroll('right')}>
-            <ChevronRight size={24} />
-          </button>
+          {/* RIGHT — horizontal carousel */}
+          <div className={styles.rightPanel}>
+            <div className={styles.carouselHeader}>
+              <span className={styles.carouselCount}>{products.length} products</span>
+              <div className={styles.navBtns}>
+                <button className={styles.navBtn} onClick={() => scroll('left')} aria-label="Previous">
+                  <ChevronLeft size={18} />
+                </button>
+                <button className={styles.navBtn} onClick={() => scroll('right')} aria-label="Next">
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.scrollView} ref={scrollRef}>
+              {products.map((product) => (
+                <Link href="#" key={product.id} className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <img src={product.image} alt={product.name} className={styles.image} />
+                  </div>
+                  <div className={styles.content}>
+                    <h3 className={styles.productName}>{product.name}</h3>
+                    <p className={styles.productDesc}>{product.desc}</p>
+                  </div>
+                  <div className={styles.cardFooter}>
+                    <span className={styles.learnMore}>Learn More</span>
+                    <ArrowRight className={styles.arrowIcon} size={15} />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

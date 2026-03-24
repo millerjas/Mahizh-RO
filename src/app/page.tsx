@@ -9,6 +9,7 @@ import Testimonials from "@/components/Home/Testimonials";
 import Achievements from "@/components/Home/Achievements";
 import ServiceArea from "@/components/Home/ServiceArea";
 import SpecialSection from "@/components/Home/SpecialSection";
+import ServicesCTA from "@/components/services/ServicesCTA";
 
 export default function Home() {
   return (
@@ -16,12 +17,13 @@ export default function Home() {
       <Navbar />
       <HeroSlider />
       <ServicesSection />
-      <AboutUs />
       <ProductsSection />
-      <Testimonials />
+      <SpecialSection />    {/* ← moved up (promo works while interest is hot) */}
+      <AboutUs />           {/* ← moved down (trust-building, not first-impression) */}
       <Achievements />
+      <Testimonials />
       <ServiceArea />
-      <SpecialSection />
+      <ServicesCTA />
       <Footer />
     </main>
   );

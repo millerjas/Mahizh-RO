@@ -22,10 +22,10 @@ export default function ServicesPage() {
                 <ServicesCTA />
             </main>
 
-            <CTASection
+            {/* <CTASection
                 title="Custom Solutions for Your Business"
                 subtitle="Need a specialized water purification system? Let's discuss your requirements today."
-            />
+            /> */}
 
             <Footer />
         </main>
