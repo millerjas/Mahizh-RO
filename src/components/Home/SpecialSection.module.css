@@ -1,3 +1,5 @@
+/* SpecialSection.module.css */
+
 .specialSection {
   padding: 6rem 0;
   background-color: var(--color-surface);
@@ -11,14 +13,14 @@
 
 .header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem; /* tightened slightly */
 }
 
 .title {
   font-size: 2.25rem;
   font-weight: 800;
   color: var(--foreground);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* tightened */
 }
 
 .subtitle {
@@ -26,58 +28,68 @@
   font-size: 1.125rem;
   max-width: 48rem;
   margin: 0 auto;
+  line-height: 1.6; /* added for readability */
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem; /* reduced from 2rem — less spread out */
 }
 
 .card {
   background: var(--background);
-  padding: 2rem;
+  padding: 1.75rem 2rem; /* slightly less vertical padding */
   border-radius: 1rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
   width: 100%;
   max-width: 350px;
-  border: 1px solid rgba(17, 24, 39, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(17, 24, 39, 0.08); /* slightly more visible */
+  border-left: 3px solid transparent; /* prep for hover accent */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-color: rgba(30, 64, 175, 0.2);
+  transform: translateY(-3px); /* reduced from -4px — subtler */
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+  border-color: rgba(30, 64, 175, 0.15);
+  border-left-color: var(--color-primary); /* accent pop on left */
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.08);
 }
 
 .iconWrapper {
-  background-color: rgba(30, 64, 175, 0.1);
-  padding: 1rem;
+  background-color: rgba(30, 64, 175, 0.08); /* softened slightly */
+  padding: 0.875rem; /* tightened from 1rem */
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0; /* prevent icon squish on narrow cards */
+  transition: transform 0.25s ease;
 }
 
 .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem; /* slightly smaller from 2rem */
+  height: 1.75rem;
   color: var(--color-primary);
 }
 
 .cardTitle {
-  font-size: 1.125rem;
+  font-size: 1rem; /* tightened from 1.125rem — less competing with section title */
   font-weight: 700;
   color: var(--foreground);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
 }
 
 .cardDesc {
   font-size: 0.875rem;
   color: var(--color-muted);
-  line-height: 1.4;
+  line-height: 1.5; /* bumped from 1.4 */
 }

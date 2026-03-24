@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import ServicesCTA from "@/components/services/ServicesCTA";
 
 type FormData = {
   fullName: string;
@@ -217,6 +218,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <ServicesCTA />
 
       <Footer />
     </main>

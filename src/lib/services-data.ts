@@ -13,60 +13,62 @@ export const SITE = {
   cities: ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Tirunelveli"],
 };
 
+
+
 // ── Service overview cards (links to detail sections) ──
 export const SERVICE_CARDS = [
   {
     id: "domestic-ro",
-    icon: "🏠",
+    image: "/images/services/ro-installation.jpg",
     title: "Domestic RO Purifiers",
     description: "Sales, installation & service for 15+ top brands. Perfect for homes and apartments.",
     cta: "View brands",
   },
   {
     id: "commercial-ro",
-    icon: "🏭",
+    image: "/images/services/ro-installation.jpg",
     title: "Commercial RO Plants",
     description: "Fully automatic & semi-automatic RO plants from 250 LPH to 5000 LPH.",
     cta: "View capacities",
   },
   {
     id: "dispenser",
-    icon: "🚰",
+    image: "/images/services/ro-installation.jpg",
     title: "Dispenser Plant",
     description: "SS (Stainless Steel) dispenser units for commercial and institutional use.",
     cta: "Learn more",
   },
   {
     id: "softener",
-    icon: "🔬",
+    image: "/images/services/ro-installation.jpg",
     title: "Softener, Iron Remover & Multimedia Plant",
     description: "Water softening and iron removal systems for homes, industries and agriculture.",
     cta: "Learn more",
   },
   {
     id: "pumps",
-    icon: "⚡",
+    image: "/images/services/ro-installation.jpg",
     title: "Pressure Pumps",
     description: "Authorized Genvik distributor. Vertical & horizontal pump models available.",
     cta: "View pumps",
   },
   {
     id: "solar",
-    icon: "☀️",
+    image: "/images/services/ro-installation.jpg",
     title: "Solar Water Heater",
     description: "Energy-efficient solar water heating systems for residential and commercial use.",
     cta: "Learn more",
   },
   {
     id: "chemicals",
-    icon: "🧪",
+    image: "/images/services/ro-installation.jpg",
     title: "RO & Water Chemicals",
     description: "Anti-scalants, Hypo, Alum, Citric acid, ETTA, ABF & swimming pool chemicals.",
     cta: "View list",
   },
   {
     id: "spares",
-    icon: "🔧",
+    image: "/images/services/ro-installation.jpg",
     title: "RO Spare Parts A to Z",
     description: "All RO components and accessories for every brand and model — one stop shop.",
     cta: "View parts",
@@ -145,3 +147,4 @@ export const FAQS = [
     a: "Yes, we offer Annual Maintenance Contracts for both domestic and commercial RO systems across Tamil Nadu. Contact us to get a customized AMC plan for your setup.",
   },
 ];
+

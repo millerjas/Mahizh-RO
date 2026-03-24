@@ -66,7 +66,7 @@ export function DomesticRO() {
                 </li>
               ))}
             </ul>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Get Free Consultation
             </Link>
           </div>
@@ -143,7 +143,7 @@ export function CommercialRO() {
                 ))}
               </tbody>
             </table>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Request a Quote
             </Link>
           </div>
@@ -178,7 +178,7 @@ export function DispenserPlant() {
               <li>✅ Low maintenance design</li>
               <li>✅ Custom configurations available</li>
             </ul>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Enquire Now
             </Link>
           </div>
@@ -234,7 +234,7 @@ export function SoftenerIronRemover() {
             <p className={styles.detailNote}>
               📸 Product photos available on request via WhatsApp.
             </p>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Get Photos &amp; Quote
             </Link>
           </div>
@@ -276,7 +276,7 @@ export function PressurePumps() {
                 <p>Heavy-duty horizontal pump for water transfer and booster applications</p>
               </div>
             </div>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Check Availability
             </Link>
           </div>
@@ -325,7 +325,7 @@ export function SolarWaterHeater() {
             <p className={styles.detailNote}>
               📸 Product photos available on request via WhatsApp.
             </p>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Get Photos &amp; Price
             </Link>
           </div>
@@ -366,7 +366,7 @@ export function ROChemicals() {
                 </li>
               ))}
             </ul>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Order Chemicals
             </Link>
           </div>
@@ -420,7 +420,7 @@ export function ROSpareParts() {
             <p className={styles.detailHighlight}>
               Don&apos;t see your part? Call us — we source any RO component.
             </p>
-            <Link href="#contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
+            <Link href="/contact" className={`${styles.btn} ${styles.btnPrimary} ${styles.mt4}`}>
               Find Your Part
             </Link>
           </div>

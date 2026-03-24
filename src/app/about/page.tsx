@@ -2,8 +2,7 @@
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Achievements from "@/components/Home/Achievements";
-import Testimonials from "@/components/Home/Testimonials";
+import CTASection from "@/components/Home/CTASection";
 import styles from "./page.module.css";
 import { Quote } from "lucide-react";
 
@@ -141,10 +140,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Happy Clients Section (Reused existing Testimonials) */}
-      <div className={styles.clientsWrapper}>
-        <Testimonials />
-      </div>
+            <CTASection
+                title="Experience the Difference"
+                subtitle="Partner with Theni's most trusted water purification experts today."
+            />
 
       <Footer />
     </main>
