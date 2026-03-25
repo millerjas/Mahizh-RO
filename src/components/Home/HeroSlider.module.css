@@ -1,124 +1,385 @@
-.heroSection {
+/* ─────────────────────────────────────────
+   HeroSlider.module.css — Refined Professional Edition
+───────────────────────────────────────── */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap'); */
+
+/* ── CSS Variables ── */
+.hero {
+  --accent: #2a85c7;
+  --accent-light: #5ab0e8;
+  --accent-glow: rgba(42, 133, 199, 0.25);
+  --dark-base: #060d18;
+  --navbar-h: 115px;
+  --control-h: 72px;
+
   position: relative;
   width: 100%;
-  height: 400px;
-  min-height: 100px;
-  margin-top: 67px;
+  /* 75vh total, navbar sits on top so hero fills remaining visible space */
+  height: 75vh;
+  min-height: 520px;
   overflow: hidden;
-  background-color: var(--background);
+  background: var(--dark-base);
+  /* font-family: 'Outfit', sans-serif; */
 }
 
-.sliderContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* ── Background stack ── */
+.bgStack {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.slide {
+.bgLayer {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.07);
+  transition:
+    opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
-.overlay {
+.bgActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bgPrev {
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.2s ease;
+}
+
+/* ── Multi-layer overlay for cinematic depth ── */
+.gradientOverlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* Deep left panel + fade right */
+  background:
+    linear-gradient(
+      100deg,
+      rgba(4, 10, 22, 0.92) 0%,
+      rgba(4, 10, 22, 0.75) 40%,
+      rgba(4, 10, 22, 0.30) 70%,
+      rgba(4, 10, 22, 0.10) 100%
+    );
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  /* Bottom dark band for control bar legibility */
+  background:
+    radial-gradient(ellipse at 20% 50%, transparent 50%, rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(to top, rgba(4, 10, 22, 0.85) 0%, transparent 28%);
+}
+
+/* Subtle blue ambient light from left */
+.ambientLight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(42, 133, 199, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Content stack ── */
+.contentStack {
+  position: absolute;
+  top: var(--navbar-h);
+  bottom: var(--control-h);
+  left: 0;
+  right: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 1rem;
+  pointer-events: none;
 }
 
-.content {
-  max-width: 800px;
-  color: #ffffff;
+.slideContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 clamp(24px, 7vw, 110px);
+  max-width: 660px;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.contentActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0.4s;
+}
+
+.contentPrev {
+  opacity: 0;
+  transform: translateY(-18px);
+  transition-delay: 0s;
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: clamp(10px, 1vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin: 0 0 14px;
+}
+
+.eyebrowLine {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-light), transparent);
+  flex-shrink: 0;
+}
+
+/* ── Title ── */
 .title {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  /* font-family: 'Cormorant Garamond', Georgia, serif; */
+  /* Tighter range so it doesn't overpower at larger viewports */
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 0 0 16px;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
 }
 
+.titleLine {
+  display: block;
+}
+
+.titleLine:last-child {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ── Subtitle ── */
 .subtitle {
-  font-size: 1.25rem;
-  font-weight: 400;
-  opacity: 0.9;
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0 0 28px;
+  max-width: 440px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(42, 133, 199, 0.4);
 }
 
-@media (min-width: 768px) {
-  .title {
-    font-size: 4rem;
-  }
-  .subtitle {
-    font-size: 1.5rem;
-  }
+/* ── CTA Button ── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: var(--accent);
+  color: #fff;
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: gap 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(42, 133, 199, 0.35);
 }
 
-.navBtn {
+/* Shimmer on hover */
+.cta::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta:hover {
+  gap: 18px;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(42, 133, 199, 0.5);
+}
+
+.cta:hover::before {
+  left: 150%;
+}
+
+/* ── Control bar ── */
+.controlBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: var(--control-h);
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 7vw, 110px);
+  gap: 24px;
+  background: rgba(6, 13, 24, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.navBtn:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.prevBtn {
-  left: 1rem;
-}
-
-.nextBtn {
-  right: 1rem;
-}
-
-@media (min-width: 768px) {
-  .prevBtn {
-    left: 2rem;
-  }
-  .nextBtn {
-    right: 2rem;
-  }
-}
-
-.dots {
+/* ── Divider line ── */
+.slideDivider {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: clamp(24px, 7vw, 110px);
+  bottom: var(--control-h);
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.12));
+}
+
+/* ── Dots ── */
+.dotsWrap {
   display: flex;
-  gap: 0.5rem;
-  z-index: 10;
+  align-items: center;
+  gap: 10px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  position: relative;
+  width: 52px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
   border: none;
+  border-radius: 2px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  padding: 0;
+  overflow: hidden;
+  transition: width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s;
 }
 
-.activeDot {
-  background: #ffffff;
+.dot:not(.dotActive) {
+  width: 20px;
+}
+
+.dotFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.05s linear;
+}
+
+/* ── Counter ── */
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counterCurrent {
+  /* font-family: 'Cormorant Garamond', serif; */
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  min-width: 2ch;
+}
+
+.counterSep {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(-65deg);
+}
+
+.counterTotal {
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1;
+  min-width: 2ch;
+}
+
+/* ── Arrows ── */
+.arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.arrowBtn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255,255,255,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.arrowBtn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.arrowBtn:active {
+  transform: scale(0.94);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh;
+    min-height: 480px;
+  }
+  .slideContent {
+    max-width: 100%;
+  }
+  .subtitle {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .counter {
+    display: none;
+  }
+  .controlBar {
+    justify-content: space-between;
+  }
+  .dot { width: 32px; }
+  .dot:not(.dotActive) { width: 14px; }
+  .title {
+    font-size: clamp(28px, 9vw, 42px);
+  }
 }

@@ -1,6 +1,6 @@
 import { Wrench, Beaker, HelpCircle, PenTool, LayoutTemplate } from 'lucide-react';
 import styles from './SpecialSection.module.css';
-
+ 
 const specialties = [
   { id: 1, title: 'Annual Maintenance Contract (AMC)', icon: Wrench, desc: 'Hassle-free servicing year-round.' },
   { id: 2, title: 'Water Testing Services', icon: Beaker, desc: 'Professional laboratory grade tests.' },
@@ -8,17 +8,27 @@ const specialties = [
   { id: 4, title: 'Customized RO Plants', icon: PenTool, desc: 'Tailored precisely to your capacity needs.' },
   { id: 5, title: 'Plant Design During Construction', icon: LayoutTemplate, desc: 'Integrate RO systems seamlessly into new builds.' },
 ];
-
+ 
 export default function SpecialSection() {
   return (
     <section className={styles.specialSection}>
       <div className={styles.container}>
-        <div className={styles.header}>
+ 
+        {/* Left: Text */}
+        <div className={styles.textSide}>
+          <span className={styles.eyebrow}>What Sets Us Apart</span>
           <h2 className={styles.title}>Our Special Offerings</h2>
-          <p className={styles.subtitle}>Beyond standard products, we provide premium services to ensure your water systems perform optimally.</p>
+          <p className={styles.subtitle}>
+            Beyond standard products, we provide premium services to ensure your water systems perform optimally.
+          </p>
+          <div className={styles.divider} />
+          <p className={styles.supporting}>
+            From ongoing maintenance contracts to full plant design during construction, our team is equipped to handle every stage of your water treatment journey.
+          </p>
         </div>
-
-        <div className={styles.grid}>
+ 
+        {/* Right: Cards stacked vertically */}
+        <div className={styles.cardList}>
           {specialties.map((item) => (
             <div key={item.id} className={styles.card}>
               <div className={styles.iconWrapper}>
@@ -31,6 +41,7 @@ export default function SpecialSection() {
             </div>
           ))}
         </div>
+ 
       </div>
     </section>
   );

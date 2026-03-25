@@ -72,7 +72,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Achievements Section (Reused) */}
-      <Achievements />
+      {/* <Achievements /> */}
 
       {/* 4. Vision & Mission (Like Image 3 - Center Image Layout) */}
       <section className={styles.visionSection}>
