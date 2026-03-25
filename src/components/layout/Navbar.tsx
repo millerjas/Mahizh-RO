@@ -102,9 +102,9 @@ export default function Navbar() {
                                           className={`${styles.dropdownItem} ${isSvcActive ? styles.activeDropdownItem : ''}`}
                                           onClick={() => setShowServices(false)}
                                         >
-                                          <div className={styles.dropdownItemIconBg}>
-                                            {/* <span className={styles.dropdownItemIcon}>{svc.icon}</span> */}
-                                          </div>
+                                          {/* <div className={styles.dropdownItemIconBg}>
+                                            <span className={styles.dropdownItemIcon}>{svc.icon}</span>
+                                          </div> */}
                                           <div className={styles.dropdownItemContent}>
                                             <div className={styles.dropdownItemTitle}>{svc.title}</div>
                                             <div className={styles.dropdownItemDesc}>{svc.description.substring(0, 45)}...</div>
