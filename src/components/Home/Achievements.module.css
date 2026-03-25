@@ -1,58 +1,140 @@
-.achievementsBg {
-  padding: 4rem 0;
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.container {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  text-align: center;
-}
-
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.item {
+.wrapperNode {
+  background-color: var(--background, #ffffff);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  /* Full viewport width expanded */
+  padding: 0;
 }
 
-.icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  color: rgba(255, 255, 255, 0.8);
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--foreground);
   margin-bottom: 0.5rem;
 }
 
-.value {
-  font-size: 2.25rem;
-  font-weight: 800;
-  line-height: 1;
+.sectionHeader p {
+  color: var(--color-muted);
+  font-size: 1.1rem;
 }
 
-.label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+.helperText {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
   text-transform: uppercase;
+  margin-top: 1rem;
   letter-spacing: 0.05em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.mainContainer {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 70vh;
+  min-height: 450px;
+  overflow: hidden;
+  background: black;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    height: 60vh;
+  }
+}
+
+.sectionSlide {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute; /* Using absolute inside container instead of fixed screen! */
+  visibility: hidden;
+}
+
+.outer,
+.inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.contentOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  z-index: 999;
+}
+
+.iconStyle {
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-primary, #32a89c);
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeading {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  width: 90vw;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Gap between words */
+}
+
+.wordBlock {
+  display: inline-flex;
+  white-space: nowrap;
+  overflow: hidden; /* Vital for the split text clip effect */
+  padding-bottom: 0.2rem;
+}
+
+.charBlock {
+  display: inline-block;
+  will-change: transform, opacity;
 }
