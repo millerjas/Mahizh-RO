@@ -18,8 +18,7 @@ export default function Home() {
       <HeroSlider />
       <ServicesSection />
       <ProductsSection />
-      <SpecialSection />    {/* ← moved up (promo works while interest is hot) */}
-      <AboutUs />           {/* ← moved down (trust-building, not first-impression) */}
+      <SpecialSection />    
       <Achievements />
       <Testimonials />
       <ServiceArea />

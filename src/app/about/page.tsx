@@ -71,8 +71,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Achievements Section (Reused) */}
-     
+    
 
       {/* 4. Vision & Mission (Like Image 3 - Center Image Layout) */}
       <section className={styles.visionSection}>

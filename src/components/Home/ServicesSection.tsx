@@ -12,56 +12,56 @@ import styles from './ServicesSection.module.css';
 const services = [
   {
     id: 1, slug: 'domestic-ro', title: 'Domestic RO', icon: Droplet,
-    image: '/services/service1.png',
+    image: '/services/domestic-ro.png',
     short: 'Compact and efficient purifiers for home use.',
     detail: 'Our domestic RO systems deliver hospital-grade purified water right at your kitchen tap. Designed for Tamil Nadu\'s varying water quality — from borewells to corporation supply. Includes pre-filter, carbon block, RO membrane, and UV stage.',
     highlights: ['5-stage purification', 'TDS controller included', '1-year free service'],
   },
   {
     id: 2, slug: 'commercial-ro', title: 'Commercial RO', icon: Settings,
-    image: '/services/service1.png',
+    image: '/services/commercial-ro.png',
     short: 'High-yield systems for offices, schools, and hospitals.',
     detail: 'Built for continuous, high-demand environments. Our commercial systems handle 50–2000 LPH with automated flushing and real-time TDS monitoring. Suitable for restaurants, schools, and medical facilities.',
     highlights: ['50–2000 LPH capacity', 'Auto-flush system', 'AMC plans available'],
   },
   {
     id: 3, slug: 'dispenser', title: 'Dispenser Plant', icon: Droplets,
-    image: '/services/service1.png',
+    image: '/services/dispenser.png',
     short: 'Integrated cooling and heating water dispensers.',
     detail: 'All-in-one units with hot, cold, and ambient water output. Ideal for offices and clinics that need instant access without separate boilers or coolers. Available in floor-standing and countertop models.',
     highlights: ['Hot, cold & ambient', 'Floor & countertop models', 'Easy filter replacement'],
   },
   {
     id: 4, slug: 'softener', title: 'Softener & Iron Remover', icon: FlaskConical,
-    image: '/services/service1.png',
+    image: '/services/iron-softner.png',
     short: 'Advanced multimedia plants for hard water treatment.',
     detail: 'Protects your plumbing, appliances, and skin from hard water damage. Our multimedia filters remove iron, manganese, and excess TDS effectively. Fully automated with timer-based backwash.',
     highlights: ['Removes iron & manganese', 'Auto backwash timer', 'Protects appliances'],
   },
   {
     id: 5, slug: 'pumps', title: 'Pressure Pumps', icon: ArrowUpCircle,
-    image: '/services/service1.png',
+    image: '/services/pressure-pump.png',
     short: 'Maintain optimal water pressure across all outlets.',
     detail: 'Low pressure kills RO efficiency. We supply and install booster pumps calibrated for your building\'s inlet pressure and daily water demand. Available in 24V DC and AC variants.',
     highlights: ['24V DC & AC variants', 'Silent operation', 'Pressure-adjustable'],
   },
   {
     id: 6, slug: 'solar', title: 'Solar Water Heater', icon: Sun,
-    image: '/services/service1.png',
+    image: '/services/solar-water-heater.png',
     short: 'Eco-friendly hot water solutions for all seasons.',
     detail: 'Reduce electricity bills by up to 80% with our ETC and FPC solar heater installations. Backed by government subsidy assistance and a 5-year warranty on the collector panel.',
     highlights: ['Up to 80% bill reduction', 'Govt. subsidy eligible', '5-year panel warranty'],
   },
   {
     id: 7, slug: 'chemicals', title: 'Chemicals', icon: ShieldCheck,
-    image: '/services/service1.png',
+    image: '/services/chemicals.png',
     short: 'Premium grade treatment chemicals for plant maintenance.',
     detail: 'Antiscalants, membrane cleaners, and pH correction chemicals sourced from certified manufacturers. Available for one-time supply or bundled into your AMC contract.',
     highlights: ['Certified manufacturers', 'Antiscalants & cleaners', 'Bulk supply available'],
   },
   {
     id: 8, slug: 'spares', title: 'RO All Spares', icon: Wrench,
-    image: '/services/service1.png',
+    image: '/services/spares.png',
     short: 'Genuine spare parts for all makes and models.',
     detail: 'Membranes, housings, filters, solenoid valves, SMPS units — we stock genuine spares for all major brands with same-day delivery across our service area in Tamil Nadu.',
     highlights: ['All major brands', 'Same-day delivery', 'Genuine parts only'],
@@ -124,7 +124,7 @@ export default function ServicesSection() {
           {/* RIGHT — about panel */}
           <div className={styles.aboutPanel}>
             <div className={styles.aboutImageWrap}>
-              <img src="/about/team.png" alt="About us" className={styles.aboutImage} />
+              <img src="/services/about-image.png" alt="About us" className={styles.aboutImage} />
               <div className={styles.aboutOverlay} />
             </div>
             <div className={styles.aboutBody}>
