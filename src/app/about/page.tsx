@@ -86,8 +86,8 @@ export default function AboutPage() {
 
             <div className={styles.visionCenterImgWrapper}>
               <img 
-                src="/Hero-images/Hero1.png" 
-                alt="Vision Tower" 
+                src="/Hero-page/waterdrop.png" 
+                alt="Water Drop Ideology" 
                 className={styles.visionCenterImg} 
               />
             </div>
