@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { Observer } from "gsap/Observer";
+import { Observer } from "gsap/all";
 import styles from "./Achievements.module.css";
 import { Award, Users, CheckCircle, IndianRupee } from 'lucide-react';
 
@@ -39,7 +39,7 @@ export default function Achievements() {
   const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
   const outerWrappersRef = useRef<(HTMLDivElement | null)[]>([]);
   const innerWrappersRef = useRef<(HTMLDivElement | null)[]>([]);
-  const textCharsRef = useRef<{ [key: parseInt]: HTMLSpanElement[] }>({});
+  const textCharsRef = useRef<{ [key: number]: HTMLSpanElement[] }>({});
 
   useEffect(() => {
     gsap.registerPlugin(Observer);
