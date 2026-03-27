@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Droplet, Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Droplet, Menu, X, Phone, ChevronDown, Facebook, Twitter, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Navbar.module.css";
@@ -36,13 +36,19 @@ export default function Navbar() {
       {/* Top Bar */}
       <div className={styles.topBar}>
         <div className={styles.topBarInner}>
-          <div>
+          <div className={styles.topBarContact}>
             Call us : +91 8307833753 — Email: info@roserviceindia.com
           </div>
           <div className={styles.socials}>
-            <span>Facebook</span>
-            <span>Twitter</span>
-            <span>Instagram</span>
+            <a href="#" aria-label="Facebook" className={styles.socialLink}>
+              <Facebook size={15} />
+            </a>
+            <a href="#" aria-label="Twitter" className={styles.socialLink}>
+              <Twitter size={15} />
+            </a>
+            <a href="#" aria-label="Instagram" className={styles.socialLink}>
+              <Instagram size={15} />
+            </a>
           </div>
         </div>
       </div>
@@ -52,85 +58,94 @@ export default function Navbar() {
         <div className={styles.navWrapper}>
           <div className={styles.navContainer}>
             <div className={styles.logoSpace}>
-              
+
+              {/* Logo — always visible */}
+              <Link href="/" className={styles.logoLink}>
+                <div className={styles.logoIconWrap}>
+                  <Droplet className={styles.logoIcon} />
+                </div>
+                <div className={styles.logoTextCol}>
+                  <span className={styles.logoTitle}>Mahizh RO</span>
+                  <span className={styles.logoSub}>Innovation</span>
+                </div>
+              </Link>
+
+              {/* Desktop Nav */}
               <div className={styles.desktopNav}>
-                <Link href="/" className={styles.logoLink}>
-                    <div className={styles.logoIconWrap}>
-                    <Droplet className={styles.logoIcon} />
-                    </div>
-                    <div className={styles.logoTextCol}>
-                    <span className={styles.logoTitle}>Mahizh RO</span>
-                    <span className={styles.logoSub}>Innovation</span>
-                    </div>
-                </Link>   
-
                 <div className={styles.navLinks}>
-                    {navLinks.map((link) => {
-                      const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                  {navLinks.map((link) => {
+                    const isActive =
+                      pathname === link.href ||
+                      (link.href !== "/" && pathname.startsWith(link.href));
 
-                      if (link.hasDropdown) {
-                        return (
-                          <div 
-                            key={link.name} 
-                            className={styles.dropdownContainer}
-                            onMouseEnter={() => setShowServices(true)}
-                            onMouseLeave={() => setShowServices(false)}
-                          >
-                            <Link
-                                href={link.href}
-                                className={`${styles.navLink} ${isActive ? styles.activeNavLink : ''}`}
-                            >
-                                {link.name}
-                                <ChevronDown size={14} className={`${styles.dropdownIcon} ${showServices ? styles.dropdownIconOpen : ''}`} />
-                            </Link>
-                            <AnimatePresence>
-                              {showServices && (
-                                <motion.div
-                                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                  transition={{ duration: 0.2 }}
-                                  className={styles.dropdownMenu}
-                                >
-                                  <div className={styles.dropdownGrid}>
-                                    {SERVICE_CARDS.map(svc => {
-                                      const isSvcActive = pathname === `/services/${svc.id}`;
-                                      return (
-                                        <Link 
-                                          key={svc.id} 
-                                          href={`/services/${svc.id}`} 
-                                          className={`${styles.dropdownItem} ${isSvcActive ? styles.activeDropdownItem : ''}`}
-                                          onClick={() => setShowServices(false)}
-                                        >
-                                          {/* <div className={styles.dropdownItemIconBg}>
-                                            <span className={styles.dropdownItemIcon}>{svc.icon}</span>
-                                          </div> */}
-                                          <div className={styles.dropdownItemContent}>
-                                            <div className={styles.dropdownItemTitle}>{svc.title}</div>
-                                            <div className={styles.dropdownItemDesc}>{svc.description.substring(0, 45)}...</div>
-                                          </div>
-                                        </Link>
-                                      );
-                                    })}
-                                  </div>
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        );
-                      }
-
+                    if (link.hasDropdown) {
                       return (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className={`${styles.navLink} ${isActive ? styles.activeNavLink : ''}`}
+                        <div
+                          key={link.name}
+                          className={styles.dropdownContainer}
+                          onMouseEnter={() => setShowServices(true)}
+                          onMouseLeave={() => setShowServices(false)}
                         >
+                          <Link
+                            href={link.href}
+                            className={`${styles.navLink} ${isActive ? styles.activeNavLink : ""}`}
+                          >
                             {link.name}
-                        </Link>
+                            <ChevronDown
+                              size={14}
+                              className={`${styles.dropdownIcon} ${showServices ? styles.dropdownIconOpen : ""}`}
+                            />
+                          </Link>
+                          <AnimatePresence>
+                            {showServices && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                                className={styles.dropdownMenu}
+                              >
+                                <div className={styles.dropdownGrid}>
+                                  {SERVICE_CARDS.map((svc) => {
+                                    const isSvcActive =
+                                      pathname === `/services/${svc.id}`;
+                                    return (
+                                      <Link
+                                        key={svc.id}
+                                        href={`/services/${svc.id}`}
+                                        className={`${styles.dropdownItem} ${isSvcActive ? styles.activeDropdownItem : ""}`}
+                                        onClick={() => setShowServices(false)}
+                                      >
+                                        <div className={styles.dropdownItemContent}>
+                                          <div className={styles.dropdownItemTitle}>
+                                            {svc.title}
+                                          </div>
+                                          <div className={styles.dropdownItemDesc}>
+                                            {svc.description.substring(0, 45)}...
+                                          </div>
+                                        </div>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       );
-                    })}                   
-                </div> 
+                    }
+
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className={`${styles.navLink} ${isActive ? styles.activeNavLink : ""}`}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })}
+                </div>
 
                 <Link href="/contact" className={styles.quoteBtn}>
                   <Phone className="h-4 w-4" />
@@ -138,7 +153,7 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* Mobile Button */}
+              {/* Mobile Hamburger Button */}
               <div className={styles.mobileBtnWrap}>
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -162,16 +177,24 @@ export default function Navbar() {
             >
               <div className={styles.mobileNavInner}>
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                  const isActive =
+                    pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href));
 
                   if (link.hasDropdown) {
                     return (
                       <div key={link.name} className={styles.mobileDropdownWrap}>
-                        <div className={`${styles.mobileLink} ${styles.mobileLinkParent} ${isActive ? styles.activeMobileLink : ''}`}>
-                          <Link href={link.href} onClick={() => setIsOpen(false)} className={styles.mobileLinkText}>
+                        <div
+                          className={`${styles.mobileLink} ${styles.mobileLinkParent} ${isActive ? styles.activeMobileLink : ""}`}
+                        >
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={styles.mobileLinkText}
+                          >
                             {link.name}
                           </Link>
-                          <button 
+                          <button
                             className={styles.mobileDropdownBtn}
                             onClick={(e) => {
                               e.preventDefault();
@@ -179,7 +202,10 @@ export default function Navbar() {
                               setMobileServicesOpen(!mobileServicesOpen);
                             }}
                           >
-                            <ChevronDown size={20} className={mobileServicesOpen ? styles.dropdownIconOpen : ''} />
+                            <ChevronDown
+                              size={20}
+                              className={mobileServicesOpen ? styles.dropdownIconOpen : ""}
+                            />
                           </button>
                         </div>
                         <AnimatePresence>
@@ -190,13 +216,14 @@ export default function Navbar() {
                               exit={{ opacity: 0, height: 0 }}
                               className={styles.mobileDropdownMenu}
                             >
-                              {SERVICE_CARDS.map(svc => {
-                                const isSvcActive = pathname === `/services/${svc.id}`;
+                              {SERVICE_CARDS.map((svc) => {
+                                const isSvcActive =
+                                  pathname === `/services/${svc.id}`;
                                 return (
-                                  <Link 
-                                    key={svc.id} 
-                                    href={`/services/${svc.id}`} 
-                                    className={`${styles.mobileDropdownItem} ${isSvcActive ? styles.activeMobileDropdownItem : ''}`}
+                                  <Link
+                                    key={svc.id}
+                                    href={`/services/${svc.id}`}
+                                    className={`${styles.mobileDropdownItem} ${isSvcActive ? styles.activeMobileDropdownItem : ""}`}
                                     onClick={() => setIsOpen(false)}
                                   >
                                     {svc.title}
@@ -215,7 +242,7 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`${styles.mobileLink} ${isActive ? styles.activeMobileLink : ''}`}
+                      className={`${styles.mobileLink} ${isActive ? styles.activeMobileLink : ""}`}
                     >
                       {link.name}
                     </Link>
