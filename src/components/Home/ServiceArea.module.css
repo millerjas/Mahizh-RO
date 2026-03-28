@@ -1,205 +1,160 @@
-.serviceSection {
-  position: relative;
-  padding: 8rem 0;
-  background-color: var(--color-surface, #f8fafc);
-  overflow: hidden;
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap'); */
 
-/* Subtle geographic background pattern or gradient */
-.bgDecoration {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 140%;
-  height: 140%;
-  background-image: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.03) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
+/* Brand tokens */
+/* --brand-navy:  #0d1e3d  (heading color) */
+/* --brand-cyan:  #00aeef  (eyebrow / accent) */
+/* --brand-body:  #4a5568  (body / muted text) */
+/* --brand-light: #f7f9fb  (section bg)       */
+
+.serviceSection {
+  padding: 6rem 0;
+  background-color: #ffffff;
+  /* font-family: 'Plus Jakarta Sans', sans-serif; */
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
+  padding: 0 2rem;
 }
 
+/* ── Header ─────────────────────────────────────── */
 .header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.iconWrapper {
-  width: 4rem;
-  height: 4rem;
-  background-color: rgba(30, 64, 175, 0.1);
-  color: var(--color-primary, #1e40af);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.headerIcon {
-  width: 2rem;
-  height: 2rem;
+  margin-bottom: 3.5rem;
 }
 
 .eyebrow {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
   color: var(--color-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: 1.875rem;
   font-weight: 800;
-  color: var(--foreground);
-  margin-bottom: 1.25rem;
-  line-height: 1.1;
+  color: #111827;
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+  /* letter-spacing: -0.03em; */
 }
 
 .subtitle {
-  font-size: 1.125rem;
-  color: var(--color-muted);
-  line-height: 1.6;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #4b5563; 
+  line-height: 1.65;
+  max-width: 480px;
 }
 
-/* Map Grid */
+/* ── Grid ────────────────────────────────────────── */
 .mapGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background-color: #e2e8f0;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 680px) {
   .mapGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
+/* ── Card ────────────────────────────────────────── */
 .regionCard {
-  position: relative;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-  min-height: 400px;
+  background-color: #ffffff;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+  gap: 1.25rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .regionCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(30, 64, 175, 0.15);
+  background-color: #f0f9ff;
+}
+
+/* ── Image ───────────────────────────────────────── */
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #e2e8f0;
 }
 
 .cardImage {
   width: 100%;
-  flex-grow: 1;
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.6) brightness(1.02);
+  transition: filter 0.35s ease;
 }
 
-/* Dark gradient overlay so map image doesn't drown text on hover */
-.cardImage::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  opacity: 0.7;
-  transition: opacity 0.3s;
+.regionCard:hover .cardImage {
+  filter: saturate(1) brightness(1);
 }
 
-.regionCard:hover .cardImage::after {
-  opacity: 0.9;
-}
-
+/* ── Content ─────────────────────────────────────── */
 .cardContent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 2.5rem 2rem;
-  color: white;
-  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  gap: 0.4rem;
 }
 
-.pinHeader {
+.cardMeta {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.pinIcon {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #38bdf8; /* Highlight color */
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.1rem;
 }
 
 .regionName {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0d1e3d;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-.overlayInfo {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.regionCard:hover .overlayInfo {
-  max-height: 150px;
-  opacity: 1;
-}
-
-.regionDesc {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.25rem;
-}
-
-.exploreBtn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  font-size: 0.85rem;
+.regionIndex {
+  font-size: 11px;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  backdrop-filter: blur(4px);
+  letter-spacing: 0.1em;
+  color: #a0aec0;
 }
 
-.exploreBtn:hover {
-  background: white;
-  color: var(--color-primary, #1e40af);
+.districts {
+  font-size: 13px;
+  font-weight: 400;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.coverageLink {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #a0aec0;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.regionCard:hover .coverageLink {
+  color: #00aeef;
+  border-bottom-color: #00aeef;
 }

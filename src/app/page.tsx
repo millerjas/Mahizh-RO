@@ -10,6 +10,8 @@ import Achievements from "@/components/Home/Achievements";
 import ServiceArea from "@/components/Home/ServiceArea";
 import SpecialSection from "@/components/Home/SpecialSection";
 import ServicesCTA from "@/components/services/ServicesCTA";
+import MidPageCTA from "@/components/Home/MidPageCTA";
+
 
 export default function Home() {
   return (
@@ -18,10 +20,11 @@ export default function Home() {
       <HeroSlider />
       <ServicesSection />
       <ProductsSection />
-      <SpecialSection />    
+      <SpecialSection />   
+      <MidPageCTA /> 
+      <ServiceArea />
       <Achievements />
       <Testimonials />
-      <ServiceArea />
       <ServicesCTA />
       <Footer />
     </main>
