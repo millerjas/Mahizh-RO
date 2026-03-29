@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { MessageCircle, X, AlertCircle } from "lucide-react";
+import { MessageCircle, X, AlertCircle, Phone } from "lucide-react";
 import styles from "./GlobalOverlays.module.css";
 
 type FormData = {
@@ -17,7 +17,7 @@ export default function GlobalOverlays() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasShownAutoPopup, setHasShownAutoPopup] = useState(true); // Default to true to prevent flash
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
 
   useEffect(() => {
     // Check session storage on mount
@@ -33,7 +33,18 @@ export default function GlobalOverlays() {
     }
   }, []);
 
-  const openDemoModal = () => {
+  useEffect(() => {
+    const handleOpenModal = (event: any) => {
+      setIsModalOpen(true);
+      if (event.detail && event.detail.intent) {
+        setValue("intent", event.detail.intent);
+      }
+    };
+    window.addEventListener("open-lead-modal", handleOpenModal);
+    return () => window.removeEventListener("open-lead-modal", handleOpenModal);
+  }, [setValue]);
+
+  const openContactModal = () => {
     setIsModalOpen(true);
   };
 
@@ -51,7 +62,7 @@ export default function GlobalOverlays() {
 
   return (
     <>
-      {/* 1. WhatsApp Floating Button */}
+      {/* WhatsApp Floating Button (Bottom Right) */}
       <a 
         href="https://wa.me/910000000000" 
         target="_blank" 
@@ -62,13 +73,14 @@ export default function GlobalOverlays() {
         <MessageCircle size={28} />
       </a>
 
-      {/* 3. Book Your Demo Floating Button */}
+      {/* Contact Us Floating Button (Side) */}
       <button 
-        onClick={openDemoModal}
-        className={styles.demoBtn}
-        aria-label="Book Your Demo"
+        onClick={openContactModal}
+        className={styles.sideContactBtn}
+        aria-label="Contact Us"
       >
-        Book Your Demo
+        <span>Contact Us</span>
+        <Phone size={18} className={styles.sideIcon} />
       </button>
 
       {/* 2. Entry Popup / Lead Capture Modal */}
@@ -143,8 +155,9 @@ export default function GlobalOverlays() {
                   className={errors.intent ? styles.inputError : styles.selectField}
                 >
                   <option value="">-- Select an Option --</option>
+                  <option value="Annual Maintenance Contract">Annual Maintenance Contract</option>
                   <option value="Water Testing">Water Testing</option>
-                  <option value="Creative Design">Creative Design</option>
+                  <option value="Water Problem Consulting">Water Problem Consulting</option>
                   <option value="RO Plant">RO Plant</option>
                   <option value="Other">Other Maintenance</option>
                 </select>

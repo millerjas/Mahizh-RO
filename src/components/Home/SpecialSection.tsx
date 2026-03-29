@@ -67,7 +67,20 @@ export default function SpecialSection() {
 
       <div className={styles.grid}>
         {specialties.map((item) => (
-          <div key={item.id} className={styles.card}>
+          <div 
+            key={item.id} 
+            className={styles.card}
+            onClick={() => {
+              let intent = "Other";
+              if (item.title.includes("Maintenance") || item.title.includes("AMC")) intent = "Annual Maintenance Contract";
+              else if (item.title.includes("Testing")) intent = "Water Testing";
+              else if (item.title.includes("Consulting")) intent = "Water Problem Consulting";
+              else if (item.title.includes("Plant")) intent = "RO Plant";
+              
+              window.dispatchEvent(new CustomEvent("open-lead-modal", { detail: { intent } }));
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <div className={styles.cardTop}>
               <span className={styles.cardNum}>{item.num}</span>
               <div className={styles.iconWrap}>

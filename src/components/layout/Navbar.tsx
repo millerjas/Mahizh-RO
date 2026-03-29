@@ -99,9 +99,9 @@ export default function Navbar() {
                           <AnimatePresence>
                             {showServices && (
                               <motion.div
-                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                initial={{ opacity: 0, y: 10, scale: 0.95, x: "-50%" }}
+                                animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                                exit={{ opacity: 0, y: 10, scale: 0.95, x: "-50%" }}
                                 transition={{ duration: 0.2 }}
                                 className={styles.dropdownMenu}
                               >
@@ -119,9 +119,6 @@ export default function Navbar() {
                                         <div className={styles.dropdownItemContent}>
                                           <div className={styles.dropdownItemTitle}>
                                             {svc.title}
-                                          </div>
-                                          <div className={styles.dropdownItemDesc}>
-                                            {svc.description.substring(0, 45)}...
                                           </div>
                                         </div>
                                       </Link>

@@ -7,6 +7,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ServicesCTA from "@/components/services/ServicesCTA";
 import ServiceDetailTemplate from "@/components/services/ServiceDetailTemplate";
+import PreviousWork from "@/components/services/PreviousWork";
+import ServiceTestimonials from "@/components/services/ServiceTestimonials";
+import OtherServices from "@/components/services/OtherServices";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -71,6 +74,9 @@ export default async function ServiceDetailPage({
 
       <main style={{ paddingTop: "80px" }}>
         <ServiceDetailTemplate data={data} headerImage={card?.image} />
+        <PreviousWork />
+        <ServiceTestimonials currentSlug={slug} />
+        <OtherServices currentSlug={slug} />
         <ServicesCTA />
       </main>
 

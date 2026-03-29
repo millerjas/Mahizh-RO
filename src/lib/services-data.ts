@@ -220,13 +220,13 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
       gradient: "linear-gradient(135deg, #0369a1, #0ea5e9)"
     },
     reverse: true,
-    featuresTable: {
-      headers: ["Capacity", "Type", "Best For"],
-      rows: COMMERCIAL_CAPACITIES.map(c => [
-        c.lph,
-        c.types.join(" / "),
-        c.bestFor
-      ])
+    productCarousel: {
+      title: "Commercial & Industrial Capacities",
+      items: COMMERCIAL_CAPACITIES.map(c => ({
+        name: c.lph,
+        image: "/services/commercial-ro.png",
+        description: `Types: ${c.types.join(" / ")}. Best suited for ${c.bestFor}. Fully backed by our expert maintenance and service.`
+      }))
     }
   },
   dispenser: {
@@ -248,10 +248,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
       "✅ Integrated filtration support",
       "✅ Low maintenance design",
       "✅ Custom configurations available"
-    ],
-    recentWorkImages: [
-      "/services/dispenser/dispenser.png",
-      "/services/dispenser.png"
     ]
   },
   softener: {
@@ -329,7 +325,14 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
       sub: "Anti-Scalant · Hypo · Alum · Citric Acid · Pool Chemicals",
       gradient: "linear-gradient(135deg, #059669, #0ea5e9)"
     },
-    gridList: CHEMICALS
+    productCarousel: {
+      title: "Chemicals We Supply",
+      items: CHEMICALS.map((chem) => ({
+        name: chem,
+        image: "/services/chemicals.png",
+        description: `High-quality ${chem} for RO plants and water treatment, available in retail and bulk quantities.`
+      }))
+    }
   },
   spares: {
     id: "spares",
@@ -345,6 +348,13 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
       gradient: "linear-gradient(135deg, #475569, #0ea5e9)"
     },
     reverse: true,
-    gridList: SPARE_PARTS
+    productCarousel: {
+      title: "A to Z Spare Parts",
+      items: SPARE_PARTS.map((part) => ({
+        name: part,
+        image: "/services/spares.png",
+        description: `Genuine replacement ${part} compatible with all leading RO brands and models. Guaranteed performance.`
+      }))
+    }
   }
 };
