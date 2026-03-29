@@ -91,11 +91,11 @@ export default function ServicesSection() {
           {/* LEFT — cards grid */}
           <div className={styles.gridWrap}>
             <div className={styles.gridHeader}>
-              <p className={styles.label}>What We Offer</p>
-              <h2 className={styles.title}>Complete Water Treatment Solutions</h2>
-              <p className={styles.subtitle}>
+              {/* <p className={styles.label}>What We Offer</p> */}
+              <h1 className={styles.title}>Complete Water Treatment Solutions</h1>
+              {/* <p className={styles.subtitle}>
                 From home purifiers to industrial plants — every service you need, under one roof.
-              </p>
+              </p> */}
             </div>
 
             <div className={styles.grid}>
@@ -108,13 +108,13 @@ export default function ServicesSection() {
                   <div className={styles.cardImageWrap}>
                     <img src={svc.image} alt={svc.title} className={styles.cardImage} />
                     <div className={styles.cardOverlay} />
-                    <div className={styles.cardIconBadge}>
+                    {/* <div className={styles.cardIconBadge}>
                       <svc.icon size={14} />
-                    </div>
+                    </div> */}
                   </div>
                   <div className={styles.cardBody}>
                     <span className={styles.cardTitle}>{svc.title}</span>
-                    <span className={styles.cardShort}>{svc.short}</span>
+                    {/* <span className={styles.cardShort}>{svc.short}</span> */}
                   </div>
                 </button>
               ))}

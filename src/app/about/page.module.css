@@ -69,7 +69,7 @@
 
 /* 2. Dual Image + Text Section */
 .dualSection {
-  padding: 8rem 0;
+  padding: 2rem 0;
   background-color: var(--background);
   position: relative;
 }
@@ -172,7 +172,7 @@
 
 /* 4. Vision & Mission Section */
 .visionSection {
-  padding: 8rem 0;
+  padding: 10px 0;
   background-color: var(--background);
 }
 
@@ -250,7 +250,7 @@
 
 /* 5. Founder Section */
 .founderSection {
-  padding: 8rem 0;
+  padding: 3rem 0;
   background-color: var(--color-surface, #f9fafb);
   border-top: 1px solid rgba(0,0,0,0.05);
 }

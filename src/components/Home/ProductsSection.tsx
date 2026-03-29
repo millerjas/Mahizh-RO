@@ -35,15 +35,15 @@ export default function ProductsSection() {
 
           {/* LEFT — sticky info panel */}
           <div className={styles.leftPanel}>
-            <p className={styles.sectionLabel}>Our Products</p>
+            {/* <p className={styles.sectionLabel}>Our Products</p> */}
             <h2 className={styles.title}>Water Purification Systems</h2>
             <p className={styles.subtitle}>
               From compact home purifiers to large-scale industrial plants — every
               product is built for Tamil Nadu's water conditions and long-term reliability.
             </p>
-            <Link href="/products" className={styles.allProductsLink}>
+            {/* <Link href="/products" className={styles.allProductsLink}>
               View all products <ArrowRight size={15} />
-            </Link>
+            </Link> */}
 
             <div className={styles.leftImage}>
               <img
@@ -57,7 +57,7 @@ export default function ProductsSection() {
           {/* RIGHT — horizontal carousel */}
           <div className={styles.rightPanel}>
             <div className={styles.carouselHeader}>
-              <span className={styles.carouselCount}>{products.length} products</span>
+              {/* <span className={styles.carouselCount}>{products.length} products</span> */}
               <div className={styles.navBtns}>
                 <button className={styles.navBtn} onClick={() => scroll('left')} aria-label="Previous">
                   <ChevronLeft size={18} />

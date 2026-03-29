@@ -7,7 +7,7 @@
 /* --brand-light: #f7f9fb  (section bg)       */
 
 .serviceSection {
-  padding: 6rem 0;
+  padding: 1rem 0;
   background-color: #ffffff;
   /* font-family: 'Plus Jakarta Sans', sans-serif; */
 }
@@ -15,7 +15,7 @@
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 /* ── Header ─────────────────────────────────────── */
@@ -70,7 +70,7 @@
 /* ── Card ────────────────────────────────────────── */
 .regionCard {
   background-color: #ffffff;
-  padding: 1.75rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -148,7 +148,7 @@
   letter-spacing: 0.02em;
   color: #a0aec0;
   border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
   cursor: pointer;
   width: fit-content;

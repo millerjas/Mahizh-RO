@@ -68,7 +68,7 @@ export default function ServiceArea() {
                   <span className={styles.regionIndex}>{region.index}</span>
                 </div>
                 <p className={styles.districts}>{region.districts}</p>
-                <span className={styles.coverageLink}>View coverage →</span>
+                {/* <span className={styles.coverageLink}>View coverage →</span> */}
               </div>
             </div>
           ))}
