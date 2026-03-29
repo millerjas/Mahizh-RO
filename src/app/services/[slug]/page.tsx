@@ -2,48 +2,21 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SERVICE_CARDS } from "@/lib/services-data";
+import { SERVICE_CARDS, SERVICE_DETAILS } from "@/lib/services-data";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ServicesCTA from "@/components/services/ServicesCTA";
-import ProductsSection from "@/components/services/ProductsSection";
-import {
-  DomesticRO,
-  CommercialRO,
-  DispenserPlant,
-  SoftenerIronRemover,
-  PressurePumps,
-  SolarWaterHeater,
-  ROChemicals,
-  ROSpareParts,
-} from "@/components/services/ServiceDetails";
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Component map — typed against known service IDs
-// ─────────────────────────────────────────────────────────────────────────────
-
-type ServiceSlug = (typeof SERVICE_CARDS)[number]["id"];
-
-const COMPONENT_MAP: Record<ServiceSlug, React.ComponentType> = {
-  "domestic-ro": DomesticRO,
-  "commercial-ro": CommercialRO,
-  dispenser: DispenserPlant,
-  softener: SoftenerIronRemover,
-  pumps: PressurePumps,
-  solar: SolarWaterHeater,
-  chemicals: ROChemicals,
-  spares: ROSpareParts,
-};
+import ServiceDetailTemplate from "@/components/services/ServiceDetailTemplate";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
-function isValidSlug(slug: string): slug is ServiceSlug {
-  return slug in COMPONENT_MAP;
+function isValidSlug(slug: string): boolean {
+  return slug in SERVICE_DETAILS;
 }
 
-function getServiceCard(slug: ServiceSlug) {
+function getServiceCard(slug: string) {
   return SERVICE_CARDS.find((svc) => svc.id === slug);
 }
 
@@ -89,15 +62,15 @@ export default async function ServiceDetailPage({
 
   if (!isValidSlug(slug)) notFound();
 
-  const Component = COMPONENT_MAP[slug];
+  const data = SERVICE_DETAILS[slug];
+  const card = getServiceCard(slug);
 
   return (
     <>
       <Navbar />
 
       <main style={{ paddingTop: "80px" }}>
-        <Component />
-        <ProductsSection />
+        <ServiceDetailTemplate data={data} headerImage={card?.image} />
         <ServicesCTA />
       </main>
 

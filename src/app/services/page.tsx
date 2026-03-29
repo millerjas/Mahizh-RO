@@ -17,7 +17,7 @@ export default function ServicesPage() {
             <main>
                 <ServicesHero />
                 <ServicesOverview />
-                <WhyUs />
+                {/* <WhyUs /> */}
                 <FAQ />
                 <ServicesCTA />
             </main>

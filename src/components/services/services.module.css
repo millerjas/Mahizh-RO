@@ -425,6 +425,62 @@
 .detailVisualIcon  { font-size: 3.5rem; position: relative; z-index: 1; }
 .detailVisualLabel { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; position: relative; z-index: 1; }
 .detailVisualSub   { font-size: 0.82rem; opacity: 0.8; position: relative; z-index: 1; }
+
+/* Real Image Wrapper for Detail Sections */
+.detailVisualImageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface);
+}
+
+.detailImageObj {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.detailVisualImageWrapper:hover .detailImageObj {
+  transform: scale(1.02);
+}
+
+/* ── Recent Work Gallery ── */
+.recentWorkGallery {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+}
+.galleryTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-foreground);
+}
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.galleryItem {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+}
+.galleryImageObj {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.galleryItem:hover .galleryImageObj {
+  transform: scale(1.05);
+}
  
 /* ── Brands list ── */
 .brandsList {
