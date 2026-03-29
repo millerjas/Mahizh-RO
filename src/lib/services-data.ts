@@ -192,10 +192,18 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     },
     productCarousel: {
       title: "Brands We Carry & Service",
-      items: DOMESTIC_BRANDS.map(brand => ({
-        name: brand,
-        description: `Professional domestic RO water purifier by ${brand}. Genuine parts, full warranty, and AMC available.`,
-      }))
+      items: DOMESTIC_BRANDS.map((brand, idx) => {
+        const roImages = [
+          "/services/products/ro1.png",
+          "/services/products/ro2.png",
+          "/services/products/ro3.png"
+        ];
+        return {
+          name: brand,
+          image: roImages[idx % roImages.length],
+          description: `Professional domestic RO water purifier by ${brand}. Genuine parts, full warranty, and AMC available.`,
+        };
+      })
     }
   },
   "commercial-ro": {

@@ -59,19 +59,23 @@ export default function ProductCarousel({
             <button className={styles.modalClose} onClick={() => setSelectedProduct(null)}>
               ✕
             </button>
-            <div className={styles.modalHeader}>
-              <div className={styles.modalImageHolder}>
-                {selectedProduct.image ? (
-                   <Image
-                     src={selectedProduct.image}
-                     alt={selectedProduct.name}
-                     fill
-                     style={{ objectFit: 'contain' }}
-                   />
-                ) : (
+            
+            <div className={styles.modalImageHero}>
+              {selectedProduct.image ? (
+                  <Image
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+              ) : (
+                <div className={styles.modalImagePlaceholderBg}>
                   <span className={styles.imagePlaceholderLarge}>🛡️</span>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>{selectedProduct.name}</h3>
               {selectedProduct.description && (
                 <p className={styles.modalDesc}>{selectedProduct.description}</p>
