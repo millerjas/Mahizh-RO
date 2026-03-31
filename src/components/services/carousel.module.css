@@ -38,7 +38,7 @@
 
 /* Cards inside Carousel */
 .carouselCard {
-  flex: 0 0 200px;
+  flex: 0 0 280px; /* Increased from 200px */
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -59,13 +59,19 @@
 }
 
 .cardImageHolder {
-  height: 120px;
+  height: 200px; /* Increased from 120px */
   background: #f8fafc;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #e2e8f0;
+  padding: 1rem;
+}
+
+.cardImg {
+  object-fit: contain;
+  padding: 1rem; /* Pad the image inside the holder */
 }
 
 .imagePlaceholder {
@@ -81,7 +87,7 @@
 
 .cardName {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.15rem; /* Slightly larger text */
   color: #0f172a;
 }
 

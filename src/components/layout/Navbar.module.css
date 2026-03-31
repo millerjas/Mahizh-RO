@@ -99,6 +99,17 @@
   gap: 0.5rem;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.mainLogo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logoIconWrap {

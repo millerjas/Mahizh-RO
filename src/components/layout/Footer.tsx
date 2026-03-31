@@ -12,17 +12,11 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className={styles.companyInfo}>
                         <Link href="/" className={styles.logoLink}>
-                            <div className={styles.logoIconWrap}>
-                                <Droplet className={styles.logoIcon} />
-                            </div>
-                            <div className={styles.logoTextCol}>
-                                <span className={styles.logoTitle}>
-                                    Mahizh RO
-                                </span>
-                                <span className={styles.logoSub}>
-                                    Innovation
-                                </span>
-                            </div>
+                            <img 
+                                src="/Mahizh-logo.png" 
+                                alt="Mahizh RO Logo" 
+                                className={styles.mainLogo} 
+                            />
                         </Link>
                         <p className={styles.descP}>
                             Leading provider of commercial and industrial RO water purification systems in Theni. Energy-efficient, cost-effective solutions for all industries.

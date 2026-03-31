@@ -109,7 +109,7 @@ export default function AboutPage() {
             
             <div className={styles.founderLeft}>
               <img 
-                src="/Hero-images/Hero1.png" 
+                src="/Mahizh-logo.png" 
                 alt="Founder" 
                 className={styles.founderImg} 
               />

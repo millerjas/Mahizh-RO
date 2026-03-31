@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "About Us", href: "/about" },
-  { name: "Industries", href: "/industries" },
+  // { name: "Industries", href: "/industries" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -61,13 +61,11 @@ export default function Navbar() {
 
               {/* Logo — always visible */}
               <Link href="/" className={styles.logoLink}>
-                <div className={styles.logoIconWrap}>
-                  <Droplet className={styles.logoIcon} />
-                </div>
-                <div className={styles.logoTextCol}>
-                  <span className={styles.logoTitle}>Mahizh RO</span>
-                  <span className={styles.logoSub}>Innovation</span>
-                </div>
+                <img 
+                  src="/Mahizh-logo.png" 
+                  alt="Mahizh RO Logo" 
+                  className={styles.mainLogo} 
+                />
               </Link>
 
               {/* Desktop Nav */}

@@ -192,15 +192,30 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     },
     productCarousel: {
       title: "Brands We Carry & Service",
-      items: DOMESTIC_BRANDS.map((brand, idx) => {
-        const roImages = [
-          "/services/products/ro1.png",
-          "/services/products/ro2.png",
-          "/services/products/ro3.png"
-        ];
+      items: DOMESTIC_BRANDS.map((brand) => {
+        // Map brand name exactly to uploaded image filename in public/ro-filters/
+        const imageMap: Record<string, string> = {
+          "Dolphin": "/ro-filters/dolphin.png",
+          "Waterpia": "/ro-filters/waterpia.png",
+          "Lexzon": "/ro-filters/lexzon.png",
+          "Hi-Flo": "/ro-filters/hiflo.png",
+          "Water Lilly": "/ro-filters/lilly.png",
+          "Sonet": "/ro-filters/sonnet.png",
+          "Aqua Jade": "/ro-filters/aquajade.png",
+          "Aqua Mars": "/ro-filters/aquamars.png",
+          "Canix": "/ro-filters/canix.png",
+          "Aqua 2090": "/ro-filters/aqua2090.png",
+          "Aqua XL": "/ro-filters/aquaxl.png",
+          "Aqua Roma": "/ro-filters/roma.png",
+          "Inovika": "/ro-filters/inovika.png",
+          "Era": "/ro-filters/era.png",
+          "iParis": "/ro-filters/aqua.png", // Fallback unmapped to aqua
+          "Kainet": "/ro-filters/kainet.png",
+        };
+
         return {
           name: brand,
-          image: roImages[idx % roImages.length],
+          image: imageMap[brand] || "/ro-filters/aqua.png",
           description: `Professional domestic RO water purifier by ${brand}. Genuine parts, full warranty, and AMC available.`,
         };
       })
@@ -222,11 +237,20 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     reverse: true,
     productCarousel: {
       title: "Commercial & Industrial Capacities",
-      items: COMMERCIAL_CAPACITIES.map(c => ({
-        name: c.lph,
-        image: "/services/commercial-ro.png",
-        description: `Types: ${c.types.join(" / ")}. Best suited for ${c.bestFor}. Fully backed by our expert maintenance and service.`
-      }))
+      items: COMMERCIAL_CAPACITIES.map(c => {
+        const imageMap: Record<string, string> = {
+          "250 LPH": "/commercial/250mph-fully-automatic.png",
+          "500 LPH": "/commercial/500mph-fully-automatic.png",
+          "1000 LPH": "/commercial/1000mph-fully-automatic.png",
+          "2000 LPH": "/commercial/2000mph-fully-automatic.png",
+          "5000 LPH": "/commercial/5000mph-fully-automatic.png",
+        };
+        return {
+          name: c.lph,
+          image: imageMap[c.lph] || "/services/commercial-ro.png",
+          description: `Types: ${c.types.join(" / ")}. Best suited for ${c.bestFor}. Fully backed by our expert maintenance and service.`
+        };
+      })
     }
   },
   dispenser: {
@@ -286,8 +310,8 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     productCarousel: {
       title: "Available Pump Models",
       items: [
-        { name: "Vertical Pump", description: "Space-saving, high-pressure vertical multistage pump for RO systems" },
-        { name: "Horizontal Pump", description: "Heavy-duty horizontal pump for water transfer and booster applications" }
+        { name: "Vertical Pump", image: "/genvik/vertical.png", description: "Space-saving, high-pressure vertical multistage pump for RO systems" },
+        { name: "Horizontal Pump", image: "/genvik/horizontal.png", description: "Heavy-duty horizontal pump for water transfer and booster applications" }
       ]
     }
   },

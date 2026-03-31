@@ -41,7 +41,7 @@ const MidPageCTA: React.FC = () => {
         {/* Headline */}
         <h2 className={styles["mid-cta__headline"]}>
           Ready to experience<br />
-          <em>pure water</em> for your business?
+          <em>pure water </em> for your business?
         </h2>
 
         {/* Supporting text */}
