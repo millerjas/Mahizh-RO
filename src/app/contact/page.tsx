@@ -38,16 +38,10 @@ export default function ContactPage() {
 
       {/* 1. Hero Section */}
       <section className={styles.heroSection}>
-        <div 
-          className={styles.heroImage} 
-          style={{ backgroundImage: "url('/Hero-images/Hero1.png')" }}
-        >
-          <div className={styles.heroOverlay}>
-            <div className={styles.heroContent}>
-              <h1 className={styles.heroTitle}>Contact Us</h1>
-              <p className={styles.heroSubtitle}>We'd love to hear from you. Reach out to our water experts today for the best pure water solutions.</p>
-            </div>
-          </div>
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroInner}>
+          <h1 className={styles.heroTitle}>Contact Us</h1>
+          <p className={styles.heroSubtitle}>We'd love to hear from you. Reach out to our water experts today for the best pure water solutions.</p>
         </div>
       </section>
 

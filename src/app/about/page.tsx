@@ -13,21 +13,13 @@ export default function AboutPage() {
 
       {/* 1. Hero Section (Like Image 1) */}
       <section className={styles.heroSection}>
-        <div 
-          className={styles.heroImage} 
-          style={{ backgroundImage: "url('/Hero-images/Hero1.png')" }}
-        >
-          <div className={styles.heroOverlay}>
-            <div className={styles.container}>
-              <div className={styles.heroContent}>
-                <p className={styles.heroTagline}>PIONEERING PURE WATER SOLUTIONS</p>
-                <h1 className={styles.heroTitle}>
-                  In water purification,<br />
-                  Mahizh RO Innovation is the master architect<br />
-                </h1>
-              </div>
-            </div>
-          </div>
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroInner}>
+          <p className={styles.heroTagline}>PIONEERING PURE WATER SOLUTIONS</p>
+          <h1 className={styles.heroTitle}>
+            In water purification,<br />
+            Mahizh RO Innovation is the master architect
+          </h1>
         </div>
       </section>
 
