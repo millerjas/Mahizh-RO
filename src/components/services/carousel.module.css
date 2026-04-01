@@ -13,43 +13,27 @@
   color: #111827;
 }
 
-/* Scrollable Track */
+/* Grid Track */
 .carouselTrack {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: #bae6fd transparent;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carouselTrack::-webkit-scrollbar {
-  height: 6px;
-}
-.carouselTrack::-webkit-scrollbar-track {
-  background: transparent;
-}
-.carouselTrack::-webkit-scrollbar-thumb {
-  background-color: #bae6fd;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 /* Cards inside Carousel */
 .carouselCard {
-  flex: 0 0 280px; /* Increased from 200px */
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
   text-align: left;
-  scroll-snap-align: start;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   padding: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .carouselCard:hover {
