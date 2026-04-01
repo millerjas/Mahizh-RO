@@ -351,11 +351,24 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     },
     productCarousel: {
       title: "Chemicals We Supply",
-      items: CHEMICALS.map((chem) => ({
-        name: chem,
-        image: "/services/chemicals.png",
-        description: `High-quality ${chem} for RO plants and water treatment, available in retail and bulk quantities.`
-      }))
+      items: CHEMICALS.map((chem) => {
+        const imageMap: Record<string, string> = {
+          "Anti-Scalant": "/chemicals/antiscalant.png",
+          "Hypo (Sodium Hypochlorite)": "/chemicals/hypo.png",
+          "Alum": "/chemicals/alum.png",
+          "Lemon Acid": "/chemicals/citric-soda.png",
+          "Caustic Soda": "/chemicals/castric-soda.png",
+          "Citric Acid": "/chemicals/citric-soda.png",
+          "ETTA": "/chemicals/EDTA.png",
+          "ABF": "/chemicals/abf.png",
+          "Swimming Pool Chemicals": "/chemicals/swimming-pool.png",
+        };
+        return {
+          name: chem,
+          image: imageMap[chem] || "/services/chemicals.png",
+          description: `High-quality ${chem} for RO plants and water treatment, available in retail and bulk quantities.`
+        };
+      })
     }
   },
   spares: {
@@ -374,11 +387,31 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
     reverse: true,
     productCarousel: {
       title: "A to Z Spare Parts",
-      items: SPARE_PARTS.map((part) => ({
-        name: part,
-        image: "/services/spares.png",
-        description: `Genuine replacement ${part} compatible with all leading RO brands and models. Guaranteed performance.`
-      }))
+      items: SPARE_PARTS.map((part) => {
+        const imageMap: Record<string, string> = {
+          "RO Membrane": "/spare-parts/ro-membrane.png",
+          "Sediment Filter": "/spare-parts/sediment-filter.png",
+          "Carbon Filter": "/spare-parts/carbon-filter.png",
+          "UF Membrane": "/spare-parts/uf-membrane.png",
+          "Booster Pump": "/spare-parts/booster-pump.png",
+          "Solenoid Valve": "/spare-parts/solenoid-volve.png", // matches volve.png typo
+          "TDS Controller": "/spare-parts/tds-controller.png",
+          "Flow Restrictor": "/spare-parts/flow-restrictor.png",
+          "Filter Housing": "/spare-parts/filter-housing.png",
+          "Pressure Switch": "/spare-parts/pressure-switch.png",
+          "Check Valve": "/spare-parts/check-valve.png",
+          "Fittings & Connectors": "/spare-parts/fittings-connectors.png",
+          "Storage Tank": "/spare-parts/storage-tank.png",
+          "Faucet & Tap": "/spare-parts/faucet-tap.png",
+          "UV Lamp": "/spare-parts/uv-lamp.png",
+          "SMPS / Adapter": "/spare-parts/smps-adapters.png",
+        };
+        return {
+          name: part,
+          image: imageMap[part] || "/services/spares.png",
+          description: `Genuine replacement ${part} compatible with all leading RO brands and models. Guaranteed performance.`
+        };
+      })
     }
   }
 };

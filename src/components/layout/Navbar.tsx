@@ -41,13 +41,13 @@ export default function Navbar() {
           </div>
           <div className={styles.socials}>
             <a href="#" aria-label="Facebook" className={styles.socialLink}>
-              <Facebook size={15} />
+              <Facebook size={19} />
             </a>
             <a href="#" aria-label="Twitter" className={styles.socialLink}>
-              <Twitter size={15} />
+              <Twitter size={19} />
             </a>
             <a href="#" aria-label="Instagram" className={styles.socialLink}>
-              <Instagram size={15} />
+              <Instagram size={19} />
             </a>
           </div>
         </div>
