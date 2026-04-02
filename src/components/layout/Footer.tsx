@@ -48,11 +48,7 @@ export default function Footer() {
                                     <ArrowRight className={styles.arrowIcon} /> About Us
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/industries" className={styles.linkItem}>
-                                    <ArrowRight className={styles.arrowIcon} /> Industries
-                                </Link>
-                            </li>
+                           
                             <li>
                                 <Link href="/contact" className={styles.linkItem}>
                                     <ArrowRight className={styles.arrowIcon} /> Contact

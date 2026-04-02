@@ -1,30 +1,50 @@
 import styles from './ServiceTestimonials.module.css';
-
-const DEFAULT_REVIEWS = [
+const domesticReviews = [
   {
     id: 1,
-    name: 'Karthik R.',
+    name: 'Thampi Ananthan',
     location: 'Theni',
-    review: 'The quality of water improved immediately. Their prompt installation and proper guidance really sets them apart from the competition. Highly recommended!',
-    image: 'https://ui-avatars.com/api/?name=Karthik+R&background=0D8ABC&color=fff',
+    review: 'I run a snacks business, so clean water is very important for us. Their RO service in Theni has been very reliable. The installation was smooth, and the water quality is consistently good. Happy with their support team as well.',
+    image: '/profile.png'
   },
   {
     id: 2,
-    name: 'Priya M.',
-    location: 'Madurai',
-    review: 'I rely on Mahizh RO for consistent pure water for my family. Very professional service during maintenance visits, and totally hassle-free.',
-    image: 'https://ui-avatars.com/api/?name=Priya+M&background=F59E0B&color=fff',
+    name: 'Ramesh',
+    location: 'Salem',
+    review: 'Though I am from Salem, I arranged RO service for my house in Theni. The team handled everything professionally and explained the maintenance clearly. Water taste has improved a lot after installation.',
+    image: '/profile.png'
   },
   {
     id: 3,
-    name: 'Suresh Kumar',
-    location: 'Coimbatore',
-    review: 'Our commercial plant has been running flawlessly since day one. Mahizh RO provides absolutely excellent post-sales support and AMC coverage.',
-    image: 'https://ui-avatars.com/api/?name=Suresh+Kumar&background=10B981&color=fff',
+    name: 'Vilangiyan',
+    location: 'Rajakumari, Kerala',
+    review: 'I recently shifted near Theni and needed a good water purifier. Their RO service was recommended by a friend. The service was on time, and the staff were very polite. Overall a good experience.',
+    image: '/profile.png'
   },
+  {
+    id: 4,
+    name: 'Lalitha',
+    location: 'Lespet, Pondicherry',
+    review: 'We installed the RO system for our Theni residence. The team was very patient and explained how to use and maintain it. The water is clean and safe now, which gives peace of mind.',
+    image: '/profile.png'
+  },
+  {
+    id: 5,
+    name: 'Rajesh',
+    location: 'Chennai',
+    review: 'I needed a dependable RO solution for my unit in Theni. Their service was efficient and cost-effective. The installation was completed without delay, and the water quality meets our expectations.',
+    image: '/profile.png'
+  },
+  {
+    id: 6,
+    name: 'Anonymous',
+    location: 'Vilupuram',
+    review: 'Booked their RO service for my family home in Theni. The technician arrived on time and did a neat job. The water tastes much better now, and the service process was hassle-free.',
+    image: '/profile.png'
+  }
 ];
 
-const REVIEWS_BY_SLUG: Record<string, typeof DEFAULT_REVIEWS> = {
+const REVIEWS_BY_SLUG: Record<string, typeof domesticReviews> = {
   "domestic-ro": [
     {
       id: 11,
@@ -124,7 +144,7 @@ const REVIEWS_BY_SLUG: Record<string, typeof DEFAULT_REVIEWS> = {
 export default function ServiceTestimonials({ currentSlug }: { currentSlug?: string }) {
   const reviews = currentSlug && REVIEWS_BY_SLUG[currentSlug] 
     ? REVIEWS_BY_SLUG[currentSlug] 
-    : DEFAULT_REVIEWS;
+    : domesticReviews;
 
   return (
     <section className={styles.testimonialSection}>
