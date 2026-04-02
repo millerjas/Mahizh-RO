@@ -10,7 +10,7 @@ export default function OtherServices({ currentSlug }: { currentSlug: string }) 
     .slice(0, 3);
 
   return (
-    <section className={styles.servicesOverview} style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+    <section className={styles.servicesOverview} >
       <div className={styles.sectionInner}>
         <h2 className={styles.sectionTitle}>
           Explore Other Services

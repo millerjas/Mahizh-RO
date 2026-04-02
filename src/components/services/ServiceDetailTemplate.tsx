@@ -110,26 +110,6 @@ export default function ServiceDetailTemplate({ data, headerImage }: { data: Ser
           </div>
         )}
 
-        {/* RECENT WORK GALLERY SECTION */}
-        {data.recentWorkImages && data.recentWorkImages.length > 0 && (
-          <div className={styles.recentWorkGallery}>
-            <h3 className={styles.galleryTitle}>Recent Projects & Installations</h3>
-            <div className={styles.galleryGrid}>
-              {data.recentWorkImages.map((imgSrc, idx) => (
-                <div key={idx} className={styles.galleryItem}>
-                  <Image 
-                    src={imgSrc} 
-                    alt={`Recent ${heading} Work ${idx + 1}`} 
-                    fill 
-                    className={styles.galleryImageObj} 
-                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
       </div>
     </section>
   );

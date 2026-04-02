@@ -22,14 +22,27 @@ export default function ContactPage() {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, source: 'Contact Page' }),
+      });
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Something went wrong');
+      }
+      
       setIsSubmitted(true);
       reset();
-    }, 1500);
+    } catch (error: any) {
+      alert("Failed to send message: " + error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

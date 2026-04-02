@@ -1,7 +1,7 @@
 .testimonialSection {
-  background: white;
-  padding: 5rem 0;
-  border-top: 1px solid var(--color-border);
+  background: var(--color-primary-dark);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .container {
@@ -21,7 +21,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-primary);
+  color: #bae6fd;
   margin-bottom: 0.75rem;
   display: block;
 }
@@ -30,7 +30,7 @@
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 2.5rem);
   font-weight: 800;
-  color: var(--color-foreground);
+  color: #ffffff;
   line-height: 1.2;
 }
 

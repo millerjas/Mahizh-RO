@@ -16,6 +16,7 @@ type FormData = {
 export default function GlobalOverlays() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasShownAutoPopup, setHasShownAutoPopup] = useState(true); // Default to true to prevent flash
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
 
@@ -52,12 +53,29 @@ export default function GlobalOverlays() {
     setIsModalOpen(false);
   };
 
-  const onSubmit = (data: FormData) => {
-    // Simulate API call
-    console.log("Lead captured:", data);
-    alert("Thank you! Your request has been received. Our team will contact you shortly.");
-    reset();
-    closeModal();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, source: 'Global Modal' }),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Something went wrong');
+      }
+      
+      alert("Thank you! Your request has been received. Our team will contact you shortly.");
+      reset();
+      closeModal();
+    } catch (error: any) {
+      alert("Failed to submit form: " + error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -172,8 +190,8 @@ export default function GlobalOverlays() {
                 {errors.intent && <span className={styles.errorText}><AlertCircle size={14}/> {errors.intent.message}</span>}
               </div>
 
-              <button type="submit" className={styles.submitBtn}>
-                Submit Details
+              <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
+                {isSubmitting ? "Submitting..." : "Submit Details"}
               </button>
             </form>
           </div>
