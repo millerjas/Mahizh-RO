@@ -82,7 +82,7 @@ export default function GlobalOverlays() {
     <>
       {/* WhatsApp Floating Button (Bottom Right) */}
       <a 
-        href="https://wa.me/910000000000" 
+        href="https://wa.me/919791418921" 
         target="_blank" 
         rel="noopener noreferrer"
         className={styles.whatsappBtn}

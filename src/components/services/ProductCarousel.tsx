@@ -59,15 +59,15 @@ export default function ProductCarousel({
             <button className={styles.modalClose} onClick={() => setSelectedProduct(null)}>
               ✕
             </button>
-            
+
             <div className={styles.modalImageHero}>
               {selectedProduct.image ? (
-                  <Image
-                    src={selectedProduct.image}
-                    alt={selectedProduct.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
+                <Image
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               ) : (
                 <div className={styles.modalImagePlaceholderBg}>
                   <span className={styles.imagePlaceholderLarge}>🛡️</span>
@@ -85,10 +85,10 @@ export default function ProductCarousel({
               <Link href="/contact" className={styles.btnPrimary}>
                 Enquire Now
               </Link>
-              <a 
-                href={`https://wa.me/91XXXXXXXXXX?text=Hi,%20I%20am%20interested%20in%20${encodeURIComponent(selectedProduct.name)}.`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={`https://wa.me/919791418921?text=Hi,%20I%20am%20interested%20in%20${encodeURIComponent(selectedProduct.name)}.`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.btnWhatsapp}
               >
                 WhatsApp Us

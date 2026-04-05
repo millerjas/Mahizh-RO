@@ -109,8 +109,8 @@ export default function AboutPage() {
 
             <div className={styles.founderRight}>
               <div className={styles.founderIntro}>
-                <h2 className={styles.founderName}>Meet Our Founder</h2>
-                <p className={styles.founderTitle}>Managing Director, Mahizh RO Innovation</p>
+                <h2 className={styles.founderName}>S. Anand</h2>
+                <p className={styles.founderTitle}>Founder & Managing Director</p>
               </div>
               
               <div className={styles.quoteWrapper}>

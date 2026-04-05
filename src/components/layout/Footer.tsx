@@ -63,15 +63,15 @@ export default function Footer() {
                         <ul className={styles.linksList}>
                             <li className={styles.contactLi}>
                                 <MapPin className={styles.contactIcon} />
-                                <span className={styles.contactText}>123 Industrial Area, Theni, Tamil Nadu 625531</span>
+                                <span className={styles.contactText}>No.14/C, Sadayal Street, Thittasalai Road, Theni. 625531. Tamil Nadu</span>
                             </li>
                             <li className={styles.contactLiCenter}>
                                 <Phone className={styles.contactIcon} />
-                                <span className={styles.contactTextBold}>+91 98765 43210</span>
+                                <span className={styles.contactTextBold}>+91 97914 18921</span>
                             </li>
                             <li className={styles.contactLiCenter}>
                                 <Mail className={styles.contactIcon} />
-                                <span className={styles.contactText}>contact@mahizhro.com</span>
+                                <span className={styles.contactText}>mahizhroinnovation@gmail.com</span>
                             </li>
                         </ul>
                     </div>

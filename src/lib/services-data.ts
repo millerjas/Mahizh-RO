@@ -5,12 +5,12 @@
 // ─────────────────────────────────────────────
 
 export const SITE = {
-  name: "YourBrand",           // ← replace with your brand name
-  phone: "+91 XXXXX XXXXX",    // ← replace with real phone
-  phoneRaw: "+91XXXXXXXXXX",   // ← replace with raw digits (for href)
-  whatsapp: "91XXXXXXXXXX",    // ← replace with WhatsApp number
-  url: "https://yourwebsite.com",
-  cities: ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Tirunelveli"],
+  name: "Mahizh RO Innovation",
+  phone: "+91 97914 18921",
+  phoneRaw: "+919791418921",
+  whatsapp: "919791418921",
+  url: "https://mahizhro.com",
+  cities: ["Theni", "Madurai", "Dindigul", "Coimbatore", "Salem", "Chennai"],
 };
 
 
@@ -84,11 +84,11 @@ export const DOMESTIC_BRANDS = [
 
 // ── Commercial RO capacities ──
 export const COMMERCIAL_CAPACITIES = [
-  { lph: "250 LPH",  types: ["Fully Auto", "Semi Auto"], bestFor: "Small offices, clinics" },
-  { lph: "500 LPH",  types: ["Fully Auto", "Semi Auto"], bestFor: "Schools, restaurants" },
+  { lph: "250 LPH", types: ["Fully Auto", "Semi Auto"], bestFor: "Small offices, clinics" },
+  { lph: "500 LPH", types: ["Fully Auto", "Semi Auto"], bestFor: "Schools, restaurants" },
   { lph: "1000 LPH", types: ["Fully Auto", "Semi Auto"], bestFor: "Hotels, hospitals" },
-  { lph: "2000 LPH", types: ["Fully Auto"],              bestFor: "Industries, factories" },
-  { lph: "5000 LPH", types: ["Fully Auto"],              bestFor: "Packaged water plants" },
+  { lph: "2000 LPH", types: ["Fully Auto"], bestFor: "Industries, factories" },
+  { lph: "5000 LPH", types: ["Fully Auto"], bestFor: "Packaged water plants" },
 ];
 
 // ── Chemicals ──
@@ -115,9 +115,9 @@ export const SPARE_PARTS = [
 // ── Why us cards ──
 export const WHY_US = [
   { icon: "🏆", title: "Authorized Distributor", desc: "Genvik authorized distributor ensuring genuine products with full manufacturer warranty." },
-  { icon: "🔧", title: "A to Z Spare Parts",     desc: "Every component for every brand, available immediately — no long waits for parts." },
+  { icon: "🔧", title: "A to Z Spare Parts", desc: "Every component for every brand, available immediately — no long waits for parts." },
   { icon: "🌍", title: "Tamil Nadu Wide Service", desc: "Sales, installation and service available across multiple cities in Tamil Nadu." },
-  { icon: "⚡", title: "Fast Response",           desc: "Quick service calls and prompt support — because clean water can't wait." },
+  { icon: "⚡", title: "Fast Response", desc: "Quick service calls and prompt support — because clean water can't wait." },
 ];
 
 // ── FAQ ──
@@ -391,9 +391,9 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailConfig> = {
         const imageMap: Record<string, string> = {
           "RO Membrane": "/spare-parts/ro-membrane.png",
           "Sediment Filter": "/spare-parts/sediment-filter.png",
-          "Carbon Filter": "/spare-parts/carbon-filter.png",
+          "Carbon Filter": "/spare-parts/carbonfilter.png",
           "UF Membrane": "/spare-parts/uf-membrane.png",
-          "Booster Pump": "/spare-parts/booster-pump.png",
+          "Booster Pump": "/spare-parts/boosterpump.png",
           "Solenoid Valve": "/spare-parts/solenoid-volve.png", // matches volve.png typo
           "TDS Controller": "/spare-parts/tds-controller.png",
           "Flow Restrictor": "/spare-parts/flow-restrictor.png",

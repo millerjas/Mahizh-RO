@@ -129,7 +129,7 @@ export default function ServicesSection() {
             </div>
             <div className={styles.aboutBody}>
               <p className={styles.aboutEyebrow}>Who We Are</p>
-              <h3 className={styles.aboutTitle}>Trusted Water Treatment Experts Since 2005</h3>
+              <h3 className={styles.aboutTitle}>Trusted Water Treatment Experts Since 2008</h3>
               <p className={styles.aboutText}>
                 Based in Tamil Nadu, we've spent two decades solving water problems for homes,
                 offices, factories, and institutions. Every system is designed, installed, and
