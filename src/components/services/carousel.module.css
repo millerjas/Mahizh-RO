@@ -55,7 +55,8 @@
 
 .cardImg {
   object-fit: contain;
-  padding: 1rem; /* Pad the image inside the holder */
+  padding: 1.5rem; /* Space around the image itself */
+  mix-blend-mode: multiply; /* Blends white backgrounds of images into the holder background */
 }
 
 .imagePlaceholder {

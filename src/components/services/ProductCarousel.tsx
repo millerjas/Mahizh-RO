@@ -66,7 +66,7 @@ export default function ProductCarousel({
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'contain', padding: '1.5rem', mixBlendMode: 'multiply' }}
                 />
               ) : (
                 <div className={styles.modalImagePlaceholderBg}>
