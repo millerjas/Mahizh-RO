@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
 import GlobalOverlays from "@/components/ui/GlobalOverlays";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,20 @@ export default function RootLayout({
         <div className={styles.mainContainer}>
           {children}
         </div>
+        {/* <script async src=""></script> */}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZLXWV93Y0Y"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZLXWV93Y0Y');
+          `}
+        </Script>
       </body>
     </html>
   );
