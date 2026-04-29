@@ -11,9 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mahizhroservices.com"),
   title: "Mahizh RO Innovation | Commercial RO Plants in Theni",
   description: "High-capacity, energy-efficient commercial RO plants in Theni. Water purification solutions for industries, hospitals, and hotels by Mahizh RO Innovation.",
   keywords: ["Commercial RO plant Theni", "Industrial water purification", "RO maintenance Theni", "Mahizh RO Innovation"],
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
